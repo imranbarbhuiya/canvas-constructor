@@ -966,7 +966,7 @@ export declare class Canvas {
     process<P1, P2, P3, P4, P5, P6, P7>(fn: (this: Canvas, canvas: Canvas, arg1: P1, arg2: P2, arg3: P3, arg4: P4, arg5: P5, arg6: P6, arg7: P7) => unknown, arg1: P1, arg2: P2, arg3: P3, arg4: P4, arg5: P5, arg6: P6, arg7: P7): this;
     process<P1, P2, P3, P4, P5, P6, P7, P8>(fn: (this: Canvas, canvas: Canvas, arg1: P1, arg2: P2, arg3: P3, arg4: P4, arg5: P5, arg6: P6, arg7: P7, arg8: P8) => unknown, arg1: P1, arg2: P2, arg3: P3, arg4: P4, arg5: P5, arg6: P6, arg7: P7, arg8: P8): this;
     process<P1, P2, P3, P4, P5, P6, P7, P8, P9>(fn: (this: Canvas, canvas: Canvas, arg1: P1, arg2: P2, arg3: P3, arg4: P4, arg5: P5, arg6: P6, arg7: P7, arg8: P8, arg9: P9) => unknown, arg1: P1, arg2: P2, arg3: P3, arg4: P4, arg5: P5, arg6: P6, arg7: P7, arg8: P8, arg9: P9): this;
-    process(fn: (this: Canvas, canvas: Canvas, ...args: readonly any[]) => unknown, ...args: readonly any[]): this;
+    process<T>(fn: (this: Canvas, canvas: Canvas, ...args: readonly T[]) => unknown, ...args: readonly T[]): this;
     /**
      * <warn>This is for Node.js usage only, HTMLCanvasElement does not support this</warn>
      * For image canvases, encodes the canvas as a PNG. For PDF canvases, encodes the canvas as a PDF. For SVG canvases,

@@ -2,7 +2,7 @@ import { Canvas as NodeCanvas, Image } from 'canvas';
 import type { Canvas, LoadableImage } from './Canvas';
 export declare const browser: boolean;
 export declare const internalCanvas: any;
-export declare const getFontHeight: (font: string) => any;
+export declare const getFontHeight: (font: string) => number;
 export declare const textWrap: (canvas: Canvas, text: string, wrapWidth: number) => string;
 /**
  * Resolves an Image or Buffer
