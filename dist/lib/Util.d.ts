@@ -1,4 +1,4 @@
-import { Canvas as NodeCanvas, Image } from 'canvas';
+import { Image } from 'canvas';
 import type { Canvas, LoadableImage } from './Canvas';
 export declare const browser: boolean;
 export declare const internalCanvas: any;
@@ -9,7 +9,7 @@ export declare const textWrap: (canvas: Canvas, text: string, wrapWidth: number)
  * @param src An Image instance or a buffer
  * @param cb The callback
  */
-export declare const resolveImage: (src: LoadableImage, options?: any) => Promise<NodeCanvas | Image>;
+export declare const resolveImage: (src: LoadableImage, options?: any) => Promise<Image>;
 /**
  * Utility to format an hexadecimal string into a CSS hexadecimal string.
  * @param hex The hexadecimal code.
