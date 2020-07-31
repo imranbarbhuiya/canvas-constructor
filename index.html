@@ -66,10 +66,10 @@
 				<p><a href="https://discord.gg/taNgb9d"><img src="https://discordapp.com/api/guilds/437335547711848458/embed.png" alt="Discord"></a>
 					<a href="https://www.npmjs.com/package/canvas-constructor"><img src="https://img.shields.io/npm/v/canvas-constructor.svg?maxAge=3600" alt="npm"></a>
 					<a href="https://www.npmjs.com/package/canvas-constructor"><img src="https://img.shields.io/npm/dt/canvas-constructor.svg?maxAge=3600" alt="npm"></a>
-					<a href="https://travis-ci.org/kyranet/canvasConstructor"><img src="https://travis-ci.org/kyranet/canvasConstructor.svg?branch=master" alt="Build Status"></a>
-					<a href="https://lgtm.com/projects/g/kyranet/canvasConstructor/alerts/"><img src="https://img.shields.io/lgtm/alerts/g/kyranet/canvasConstructor.svg?logo=lgtm&logoWidth=18" alt="Total alerts"></a>
-					<a href="https://dependabot.com"><img src="https://api.dependabot.com/badges/status?host=github&repo=kyranet/canvasConstructor" alt="Dependabot Status"></a>
-				<a href="https://raw.githubusercontent.com/kyranet/canvasConstructor/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="GitHub license"></a></p>
+					<a href="https://travis-ci.org/kyranet/canvas-constructor"><img src="https://travis-ci.org/kyranet/canvas-constructor.svg?branch=master" alt="Build Status"></a>
+					<a href="https://lgtm.com/projects/g/kyranet/canvas-constructor/alerts/"><img src="https://img.shields.io/lgtm/alerts/g/kyranet/canvas-constructor.svg?logo=lgtm&logoWidth=18" alt="Total alerts"></a>
+					<a href="https://dependabot.com"><img src="https://api.dependabot.com/badges/status?host=github&repo=kyranet/canvas-constructor" alt="Dependabot Status"></a>
+				<a href="https://raw.githubusercontent.com/kyranet/canvas-constructor/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="GitHub license"></a></p>
 				<p>An ES6 function for node-canvas with built-in utilities and chained methods.</p>
 				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
 					<h2>Installation</h2>
@@ -82,21 +82,21 @@
 
 <span class="hljs-keyword">new</span> Canvas(<span class="hljs-number">300</span>, <span class="hljs-number">300</span>)
     .setColor(<span class="hljs-string">&#x27;#AEFD54&#x27;</span>)
-    .addRect(<span class="hljs-number">5</span>, <span class="hljs-number">5</span>, <span class="hljs-number">290</span>, <span class="hljs-number">290</span>)
+    .printRectangle(<span class="hljs-number">5</span>, <span class="hljs-number">5</span>, <span class="hljs-number">290</span>, <span class="hljs-number">290</span>)
     .setColor(<span class="hljs-string">&#x27;#FFAE23&#x27;</span>)
     .setTextFont(<span class="hljs-string">&#x27;28px Impact&#x27;</span>)
-    .addText(<span class="hljs-string">&#x27;Hello World!&#x27;</span>, <span class="hljs-number">130</span>, <span class="hljs-number">150</span>)
+    .printText(<span class="hljs-string">&#x27;Hello World!&#x27;</span>, <span class="hljs-number">130</span>, <span class="hljs-number">150</span>)
     .toBuffer();</code></pre>
 				<p><strong>Browser</strong>:</p>
-				<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;canvasconstructor.master.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+				<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;canvas-constructor/dist/index.umd.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript">
 <span class="hljs-keyword">const</span> canvasElement = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;canvas&#x27;</span>);
-CanvasConstructor.Canvas.from(canvasElement)
+<span class="hljs-keyword">new</span> CanvasConstructor.Canvas(canvasElement)
     .setColor(<span class="hljs-string">&#x27;#AEFD54&#x27;</span>)
-    .addRect(<span class="hljs-number">5</span>, <span class="hljs-number">5</span>, <span class="hljs-number">290</span>, <span class="hljs-number">290</span>)
+    .printRectangle(<span class="hljs-number">5</span>, <span class="hljs-number">5</span>, <span class="hljs-number">290</span>, <span class="hljs-number">290</span>)
     .setColor(<span class="hljs-string">&#x27;#FFAE23&#x27;</span>)
     .setTextFont(<span class="hljs-string">&#x27;28px Impact&#x27;</span>)
-    .addText(<span class="hljs-string">&#x27;Hello World!&#x27;</span>, <span class="hljs-number">130</span>, <span class="hljs-number">150</span>);
+    .printText(<span class="hljs-string">&#x27;Hello World!&#x27;</span>, <span class="hljs-number">130</span>, <span class="hljs-number">150</span>);
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
 				<ul>
 					<li>That will create a canvas with size of 300 pixels width, 300 pixels height.</li>
@@ -112,14 +112,14 @@ CanvasConstructor.Canvas.from(canvasElement)
 <span class="hljs-keyword">const</span> fsn = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;fs-nextra&#x27;</span>);
 
 <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createCanvas</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">const</span> image = <span class="hljs-keyword">await</span> fsn.readFile(<span class="hljs-string">&#x27;./images/kitten.png&#x27;</span>);
+    <span class="hljs-keyword">const</span> image = <span class="hljs-keyword">await</span> Canvas.resolveImage(<span class="hljs-string">&#x27;./images/kitten.png&#x27;</span>);
 
     <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Canvas(<span class="hljs-number">300</span>, <span class="hljs-number">400</span>)
-        .addImage(image, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">300</span>, <span class="hljs-number">400</span>)
+        .printImage(image, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">300</span>, <span class="hljs-number">400</span>)
         .setColor(<span class="hljs-string">&#x27;#FFAE23&#x27;</span>)
         .setTextFont(<span class="hljs-string">&#x27;28px Impact&#x27;</span>)
         .setTextAlign(<span class="hljs-string">&#x27;center&#x27;</span>)
-        .addText(<span class="hljs-string">&#x27;Kitten!&#x27;</span>, <span class="hljs-number">150</span>, <span class="hljs-number">370</span>)
+        .printText(<span class="hljs-string">&#x27;Kitten!&#x27;</span>, <span class="hljs-number">150</span>, <span class="hljs-number">370</span>)
         .toBufferAsync();
 }</code></pre>
 				<ul>
@@ -132,7 +132,7 @@ CanvasConstructor.Canvas.from(canvasElement)
 					<li>Return a buffer.</li>
 				</ul>
 				<p>And now, you have created an image with a kitten in the background and some centered text in the bottom of it.</p>
-				<p>If you experience issues with <strong>Canvas</strong> or want to install it, please refer to the <a href="https://www.npmjs.com/package/canvas">canvas</a> repository, if you feel you found an issue in this package, feel free to file an issue <a href="https://github.com/kyranet/canvasConstructor/issues">here</a>, or make a <a href="https://help.github.com/articles/about-pull-requests/">Pull Request</a> if you have the fix.</p>
+				<p>If you experience issues with <strong>Canvas</strong> or want to install it, please refer to the <a href="https://www.npmjs.com/package/canvas">canvas</a> repository, if you feel you found an issue in this package, feel free to file an issue <a href="https://github.com/kyranet/canvas-constructor/issues">here</a>, or make a <a href="https://help.github.com/articles/about-pull-requests/">Pull Request</a> if you have the fix.</p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -174,6 +174,9 @@ CanvasConstructor.Canvas.from(canvasElement)
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#imageresolvable" class="tsd-kind-icon">Image<wbr>Resolvable</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#loadableimage" class="tsd-kind-icon">Loadable<wbr>Image</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#patternquality" class="tsd-kind-icon">Pattern<wbr>Quality</a>
@@ -239,6 +242,9 @@ CanvasConstructor.Canvas.from(canvasElement)
 						<a href="globals.html#invertedthreshold" class="tsd-kind-icon">inverted<wbr>Threshold</a>
 					</li>
 					<li class=" tsd-kind-function">
+						<a href="globals.html#resolveimage" class="tsd-kind-icon">resolve<wbr>Image</a>
+					</li>
+					<li class=" tsd-kind-function">
 						<a href="globals.html#sepia" class="tsd-kind-icon">sepia</a>
 					</li>
 					<li class=" tsd-kind-function">
@@ -269,9 +275,6 @@ CanvasConstructor.Canvas.from(canvasElement)
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
 			</ul>
 		</div>
 	</div>

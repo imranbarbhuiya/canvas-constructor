@@ -86,6 +86,7 @@
 								<li class="tsd-kind-type-alias"><a href="globals.html#antialias" class="tsd-kind-icon">Anti<wbr>Alias</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#globalcompositeoperation" class="tsd-kind-icon">Global<wbr>Composite<wbr>Operation</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#imageresolvable" class="tsd-kind-icon">Image<wbr>Resolvable</a></li>
+								<li class="tsd-kind-type-alias"><a href="globals.html#loadableimage" class="tsd-kind-icon">Loadable<wbr>Image</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#patternquality" class="tsd-kind-icon">Pattern<wbr>Quality</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#patternrepeat" class="tsd-kind-icon">Pattern<wbr>Repeat</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#textdrawingmode" class="tsd-kind-icon">Text<wbr>Drawing<wbr>Mode</a></li>
@@ -117,6 +118,7 @@
 								<li class="tsd-kind-function"><a href="globals.html#invert" class="tsd-kind-icon">invert</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#invertgrayscale" class="tsd-kind-icon">invert<wbr>Grayscale</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#invertedthreshold" class="tsd-kind-icon">inverted<wbr>Threshold</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#resolveimage" class="tsd-kind-icon">resolve<wbr>Image</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#sepia" class="tsd-kind-icon">sepia</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#sharpen" class="tsd-kind-icon">sharpen</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#silhouette" class="tsd-kind-icon">silhouette</a></li>
@@ -135,7 +137,7 @@
 					<div class="tsd-signature tsd-kind-icon">Anti<wbr>Alias<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CanvasRenderingContext2D</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">"antialias"</span><span class="tsd-signature-symbol">]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/84cedbc/src/lib/Canvas.ts#L49">lib/Canvas.ts:49</a></li>
+							<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/c7bd2aa/src/lib/Canvas.ts#L49">lib/Canvas.ts:49</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -145,17 +147,27 @@
 					<div class="tsd-signature tsd-kind-icon">Global<wbr>Composite<wbr>Operation<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CanvasRenderingContext2D</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">"globalCompositeOperation"</span><span class="tsd-signature-symbol">]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/84cedbc/src/lib/Canvas.ts#L48">lib/Canvas.ts:48</a></li>
+							<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/c7bd2aa/src/lib/Canvas.ts#L48">lib/Canvas.ts:48</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias">
 					<a name="imageresolvable" class="tsd-anchor"></a>
 					<h3>Image<wbr>Resolvable</h3>
-					<div class="tsd-signature tsd-kind-icon">Image<wbr>Resolvable<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">NodeCanvas</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Image</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Buffer</span></div>
+					<div class="tsd-signature tsd-kind-icon">Image<wbr>Resolvable<span class="tsd-signature-symbol">:</span> <a href="classes/canvas.html" class="tsd-signature-type">Canvas</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Image</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/84cedbc/src/lib/Canvas.ts#L53">lib/Canvas.ts:53</a></li>
+							<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/c7bd2aa/src/lib/Canvas.ts#L54">lib/Canvas.ts:54</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="loadableimage" class="tsd-anchor"></a>
+					<h3>Loadable<wbr>Image</h3>
+					<div class="tsd-signature tsd-kind-icon">Loadable<wbr>Image<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Buffer</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/c7bd2aa/src/lib/Canvas.ts#L53">lib/Canvas.ts:53</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -165,7 +177,7 @@
 					<div class="tsd-signature tsd-kind-icon">Pattern<wbr>Quality<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CanvasRenderingContext2D</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">"patternQuality"</span><span class="tsd-signature-symbol">]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/84cedbc/src/lib/Canvas.ts#L51">lib/Canvas.ts:51</a></li>
+							<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/c7bd2aa/src/lib/Canvas.ts#L51">lib/Canvas.ts:51</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -175,7 +187,7 @@
 					<div class="tsd-signature tsd-kind-icon">Pattern<wbr>Repeat<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"repeat"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"repeat-x"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"repeat-y"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"no-repeat"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">""</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/84cedbc/src/lib/Canvas.ts#L52">lib/Canvas.ts:52</a></li>
+							<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/c7bd2aa/src/lib/Canvas.ts#L52">lib/Canvas.ts:52</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -185,7 +197,7 @@
 					<div class="tsd-signature tsd-kind-icon">Text<wbr>Drawing<wbr>Mode<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CanvasRenderingContext2D</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">"textDrawingMode"</span><span class="tsd-signature-symbol">]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/84cedbc/src/lib/Canvas.ts#L50">lib/Canvas.ts:50</a></li>
+							<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/c7bd2aa/src/lib/Canvas.ts#L50">lib/Canvas.ts:50</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -198,7 +210,7 @@
 					<div class="tsd-signature tsd-kind-icon">blur<wbr>LaPlace<wbr>Matrix<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = [1 / 9, 1 / 9, 1 / 9, 1 / 9, 1 / 9, 1 / 9, 1 / 9, 1 / 9, 1 / 9]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/84cedbc/src/lib/Filter.ts#L245">lib/Filter.ts:245</a></li>
+							<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/c7bd2aa/src/lib/Filter.ts#L245">lib/Filter.ts:245</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -217,7 +229,7 @@
 					<div class="tsd-signature tsd-kind-icon">browser<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = typeof window !&#x3D;&#x3D; &#x27;undefined&#x27;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/84cedbc/src/lib/Util.ts#L3">lib/Util.ts:3</a></li>
+							<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/c7bd2aa/src/lib/Util.ts#L4">lib/Util.ts:4</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -227,7 +239,7 @@
 					<div class="tsd-signature tsd-kind-icon">edge<wbr>LaPlace<wbr>Matrix<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = [0, -1, 0, -1, 4, -1, 0, -1, 0]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/84cedbc/src/lib/Filter.ts#L214">lib/Filter.ts:214</a></li>
+							<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/c7bd2aa/src/lib/Filter.ts#L214">lib/Filter.ts:214</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -246,7 +258,7 @@
 					<div class="tsd-signature tsd-kind-icon">get<wbr>Font<wbr>Height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">(Anonymous function)</span><span class="tsd-signature-symbol"> = (() &#x3D;&gt; {// node-canvas has its own font parserif (!browser &amp;&amp; &#x27;parseFont&#x27; in internalCanvas) return (font: string) &#x3D;&gt; internalCanvas.parseFont(font).size;// Load polyfillconst kRegexSize &#x3D; /([\d.]+)(px|pt|pc|in|cm|mm|%|em|ex|ch|rem|q)/i;const kCache &#x3D; new Map&lt;string, number&gt;();return (font: string) &#x3D;&gt; {// If it was already parsed, do not parse againconst previous &#x3D; kCache.get(font);if (previous) return previous;// Test for required properties first, return null if the text is invalidconst sizeFamily &#x3D; kRegexSize.exec(font);if (!sizeFamily) return null;let size &#x3D; Number(sizeFamily[1]);const unit &#x3D; sizeFamily[2];switch (unit) {case &#x27;pt&#x27;:size /&#x3D; 0.75;break;case &#x27;pc&#x27;:size *&#x3D; 16;break;case &#x27;in&#x27;:size *&#x3D; 96;break;case &#x27;cm&#x27;:size *&#x3D; 96.0 / 2.54;break;case &#x27;mm&#x27;:size *&#x3D; 96.0 / 25.4;break;case &#x27;em&#x27;:case &#x27;rem&#x27;:size *&#x3D; 16 / 0.75;break;case &#x27;q&#x27;:size *&#x3D; 96 / 25.4 / 4;break;}kCache.set(font, size);return size;};})()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/84cedbc/src/lib/Util.ts#L15">lib/Util.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/c7bd2aa/src/lib/Util.ts#L16">lib/Util.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -256,7 +268,7 @@
 					<div class="tsd-signature tsd-kind-icon">grayscale<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">greyscale</span><span class="tsd-signature-symbol"> = greyscale</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/84cedbc/src/lib/Filter.ts#L26">lib/Filter.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/c7bd2aa/src/lib/Filter.ts#L26">lib/Filter.ts:26</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -266,7 +278,7 @@
 					<div class="tsd-signature tsd-kind-icon">internal<wbr>Canvas<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> = (() &#x3D;&gt; {// eslint-disable-next-line no-undefif (browser) return typeof HTMLCanvasElement &#x3D;&#x3D;&#x3D; &#x27;undefined&#x27; ? null : HTMLCanvasElement;try {return require(&#x27;canvas-prebuilt&#x27;);} catch (_) {return require(&#x27;canvas&#x27;);}})()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/84cedbc/src/lib/Util.ts#L5">lib/Util.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/c7bd2aa/src/lib/Util.ts#L6">lib/Util.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -276,7 +288,7 @@
 					<div class="tsd-signature tsd-kind-icon">invert<wbr>Greyscale<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">invertGrayscale</span><span class="tsd-signature-symbol"> = invertGrayscale</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/84cedbc/src/lib/Filter.ts#L44">lib/Filter.ts:44</a></li>
+							<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/c7bd2aa/src/lib/Filter.ts#L44">lib/Filter.ts:44</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -286,7 +298,7 @@
 					<div class="tsd-signature tsd-kind-icon">my<wbr>Old<wbr>Friend<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">darkness</span><span class="tsd-signature-symbol"> = darkness</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/84cedbc/src/lib/Filter.ts#L149">lib/Filter.ts:149</a></li>
+							<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/c7bd2aa/src/lib/Filter.ts#L149">lib/Filter.ts:149</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -296,7 +308,7 @@
 					<div class="tsd-signature tsd-kind-icon">sharpen<wbr>LaPlace<wbr>Matrix<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = [0, -1, 0, -1, 5, -1, 0, -1, 0]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/84cedbc/src/lib/Filter.ts#L226">lib/Filter.ts:226</a></li>
+							<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/c7bd2aa/src/lib/Filter.ts#L226">lib/Filter.ts:226</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -322,7 +334,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/84cedbc/src/lib/Filter.ts#L252">lib/Filter.ts:252</a></li>
+									<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/c7bd2aa/src/lib/Filter.ts#L252">lib/Filter.ts:252</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -363,7 +375,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/84cedbc/src/lib/Filter.ts#L121">lib/Filter.ts:121</a></li>
+									<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/c7bd2aa/src/lib/Filter.ts#L121">lib/Filter.ts:121</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -400,7 +412,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/84cedbc/src/lib/Filter.ts#L158">lib/Filter.ts:158</a></li>
+									<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/c7bd2aa/src/lib/Filter.ts#L158">lib/Filter.ts:158</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -454,7 +466,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/84cedbc/src/lib/Filter.ts#L138">lib/Filter.ts:138</a></li>
+									<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/c7bd2aa/src/lib/Filter.ts#L138">lib/Filter.ts:138</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -491,7 +503,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/84cedbc/src/lib/Filter.ts#L220">lib/Filter.ts:220</a></li>
+									<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/c7bd2aa/src/lib/Filter.ts#L220">lib/Filter.ts:220</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -524,7 +536,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/84cedbc/src/lib/Filter.ts#L14">lib/Filter.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/c7bd2aa/src/lib/Filter.ts#L14">lib/Filter.ts:14</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -557,7 +569,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/84cedbc/src/lib/Filter.ts#L7">lib/Filter.ts:7</a></li>
+									<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/c7bd2aa/src/lib/Filter.ts#L7">lib/Filter.ts:7</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -590,7 +602,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/84cedbc/src/lib/Filter.ts#L32">lib/Filter.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/c7bd2aa/src/lib/Filter.ts#L32">lib/Filter.ts:32</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -623,7 +635,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/84cedbc/src/lib/Filter.ts#L103">lib/Filter.ts:103</a></li>
+									<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/c7bd2aa/src/lib/Filter.ts#L103">lib/Filter.ts:103</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -655,6 +667,42 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="resolveimage" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> resolve<wbr>Image</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">resolve<wbr>Image<span class="tsd-signature-symbol">(</span>src<span class="tsd-signature-symbol">: </span><a href="globals.html#loadableimage" class="tsd-signature-type">LoadableImage</a>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">NodeCanvas</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Image</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/c7bd2aa/src/lib/Util.ts#L109">lib/Util.ts:109</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Resolves an Image or Buffer</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>src: <a href="globals.html#loadableimage" class="tsd-signature-type">LoadableImage</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>An Image instance or a buffer</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">NodeCanvas</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Image</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
 					<a name="sepia" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> sepia</h3>
 					<ul class="tsd-signatures tsd-kind-function">
@@ -664,7 +712,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/84cedbc/src/lib/Filter.ts#L50">lib/Filter.ts:50</a></li>
+									<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/c7bd2aa/src/lib/Filter.ts#L50">lib/Filter.ts:50</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -697,7 +745,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/84cedbc/src/lib/Filter.ts#L233">lib/Filter.ts:233</a></li>
+									<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/c7bd2aa/src/lib/Filter.ts#L233">lib/Filter.ts:233</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -738,7 +786,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/84cedbc/src/lib/Filter.ts#L68">lib/Filter.ts:68</a></li>
+									<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/c7bd2aa/src/lib/Filter.ts#L68">lib/Filter.ts:68</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -771,7 +819,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/84cedbc/src/lib/Util.ts#L65">lib/Util.ts:65</a></li>
+									<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/c7bd2aa/src/lib/Util.ts#L66">lib/Util.ts:66</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -800,7 +848,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/84cedbc/src/lib/Filter.ts#L85">lib/Filter.ts:85</a></li>
+									<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/c7bd2aa/src/lib/Filter.ts#L85">lib/Filter.ts:85</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -870,6 +918,9 @@
 						<a href="globals.html#imageresolvable" class="tsd-kind-icon">Image<wbr>Resolvable</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#loadableimage" class="tsd-kind-icon">Loadable<wbr>Image</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#patternquality" class="tsd-kind-icon">Pattern<wbr>Quality</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
@@ -933,6 +984,9 @@
 						<a href="globals.html#invertedthreshold" class="tsd-kind-icon">inverted<wbr>Threshold</a>
 					</li>
 					<li class=" tsd-kind-function">
+						<a href="globals.html#resolveimage" class="tsd-kind-icon">resolve<wbr>Image</a>
+					</li>
+					<li class=" tsd-kind-function">
 						<a href="globals.html#sepia" class="tsd-kind-icon">sepia</a>
 					</li>
 					<li class=" tsd-kind-function">
@@ -963,9 +1017,6 @@
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
 			</ul>
 		</div>
 	</div>
