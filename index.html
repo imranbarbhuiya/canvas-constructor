@@ -1,26 +1,285 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html class="default no-js">
 <head>
-    <title>canvasConstructor</title>
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <meta name="generator" content="Docma - https://github.com/onury/docma">
-
-    <link rel="stylesheet" type="text/css" href="css/docma.css">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-
-    <script src="js/docma-web.js"></script>
-    <script src="https://code.jquery.com/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="js/highlight.pack.js"></script>
-    <script src="js/app.min.js"></script>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>canvas-constructor</title>
+	<meta name="description" content="Documentation for canvas-constructor">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
 </head>
-
 <body>
-    <div id="docma-main"></div>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">canvas-constructor</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1>canvas-constructor</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#canvas-constructor" id="canvas-constructor" style="color: inherit; text-decoration: none;">
+					<h1>canvas-constructor</h1>
+				</a>
+				<p><a href="https://discord.gg/taNgb9d"><img src="https://discordapp.com/api/guilds/437335547711848458/embed.png" alt="Discord"></a>
+					<a href="https://www.npmjs.com/package/canvas-constructor"><img src="https://img.shields.io/npm/v/canvas-constructor.svg?maxAge=3600" alt="npm"></a>
+					<a href="https://www.npmjs.com/package/canvas-constructor"><img src="https://img.shields.io/npm/dt/canvas-constructor.svg?maxAge=3600" alt="npm"></a>
+					<a href="https://travis-ci.org/kyranet/canvasConstructor"><img src="https://travis-ci.org/kyranet/canvasConstructor.svg?branch=master" alt="Build Status"></a>
+					<a href="https://lgtm.com/projects/g/kyranet/canvasConstructor/alerts/"><img src="https://img.shields.io/lgtm/alerts/g/kyranet/canvasConstructor.svg?logo=lgtm&logoWidth=18" alt="Total alerts"></a>
+					<a href="https://dependabot.com"><img src="https://api.dependabot.com/badges/status?host=github&repo=kyranet/canvasConstructor" alt="Dependabot Status"></a>
+				<a href="https://raw.githubusercontent.com/kyranet/canvasConstructor/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="GitHub license"></a></p>
+				<p>An ES6 function for node-canvas with built-in utilities and chained methods.</p>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h2>Installation</h2>
+				</a>
+				<p>Please check <a href="https://github.com/Automattic/node-canvas/blob/master/Readme.md#installation">node-canvas readme</a> for the installation. You <strong>must</strong> have Canvas installed and working before using this package.</p>
+				<hr>
+				<p>How to use it:</p>
+				<p><strong>Node.js</strong>:</p>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> { Canvas } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;canvas-constructor&#x27;</span>);
 
+<span class="hljs-keyword">new</span> Canvas(<span class="hljs-number">300</span>, <span class="hljs-number">300</span>)
+    .setColor(<span class="hljs-string">&#x27;#AEFD54&#x27;</span>)
+    .addRect(<span class="hljs-number">5</span>, <span class="hljs-number">5</span>, <span class="hljs-number">290</span>, <span class="hljs-number">290</span>)
+    .setColor(<span class="hljs-string">&#x27;#FFAE23&#x27;</span>)
+    .setTextFont(<span class="hljs-string">&#x27;28px Impact&#x27;</span>)
+    .addText(<span class="hljs-string">&#x27;Hello World!&#x27;</span>, <span class="hljs-number">130</span>, <span class="hljs-number">150</span>)
+    .toBuffer();</code></pre>
+				<p><strong>Browser</strong>:</p>
+				<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;canvasconstructor.master.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript">
+<span class="hljs-keyword">const</span> canvasElement = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;canvas&#x27;</span>);
+CanvasConstructor.Canvas.from(canvasElement)
+    .setColor(<span class="hljs-string">&#x27;#AEFD54&#x27;</span>)
+    .addRect(<span class="hljs-number">5</span>, <span class="hljs-number">5</span>, <span class="hljs-number">290</span>, <span class="hljs-number">290</span>)
+    .setColor(<span class="hljs-string">&#x27;#FFAE23&#x27;</span>)
+    .setTextFont(<span class="hljs-string">&#x27;28px Impact&#x27;</span>)
+    .addText(<span class="hljs-string">&#x27;Hello World!&#x27;</span>, <span class="hljs-number">130</span>, <span class="hljs-number">150</span>);
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+				<ul>
+					<li>That will create a canvas with size of 300 pixels width, 300 pixels height.</li>
+					<li>Set the color to #AEFD54</li>
+					<li>Draw a rectangle with the previous color, covering all the pixels from (5, 5) to (290 + 5, 290 + 5)</li>
+					<li>Set the color to #FFAE23</li>
+					<li>Set the font size to 28 pixels with font Impact.</li>
+					<li>Write the text &#39;Hello World!&#39; in the position (130, 150)</li>
+					<li>Return a buffer.</li>
+				</ul>
+				<p>Now, let&#39;s suppose we want to add images. I&#39;d recommend <a href="https://github.com/bdistin/fs-nextra">fs-nextra</a>, by <a href="https://github.com/bdistin/">BDISTIN</a>, it requires Node.js 8.5.0 to work (it promisifies the async fs methods with <code>Util.promisify()</code>), it&#39;s a dependency-free and lightweight package that provides support for <strong>atomic operations</strong>.</p>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> { Canvas } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;canvas-constructor&#x27;</span>);
+<span class="hljs-keyword">const</span> fsn = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;fs-nextra&#x27;</span>);
 
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createCanvas</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">const</span> image = <span class="hljs-keyword">await</span> fsn.readFile(<span class="hljs-string">&#x27;./images/kitten.png&#x27;</span>);
 
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Canvas(<span class="hljs-number">300</span>, <span class="hljs-number">400</span>)
+        .addImage(image, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">300</span>, <span class="hljs-number">400</span>)
+        .setColor(<span class="hljs-string">&#x27;#FFAE23&#x27;</span>)
+        .setTextFont(<span class="hljs-string">&#x27;28px Impact&#x27;</span>)
+        .setTextAlign(<span class="hljs-string">&#x27;center&#x27;</span>)
+        .addText(<span class="hljs-string">&#x27;Kitten!&#x27;</span>, <span class="hljs-number">150</span>, <span class="hljs-number">370</span>)
+        .toBufferAsync();
+}</code></pre>
+				<ul>
+					<li>That will create a canvas with size of 300 pixels width, 400 pixels height.</li>
+					<li>Draw an image, given a Buffer (the image from the images folder).</li>
+					<li>Set the color to #FFAE23</li>
+					<li>Set the font size to 28 pixels with font Impact.</li>
+					<li>Set the text alignment to center.</li>
+					<li>Write the text &#39;Kitten!&#39; in the position (150, 370)</li>
+					<li>Return a buffer.</li>
+				</ul>
+				<p>And now, you have created an image with a kitten in the background and some centered text in the bottom of it.</p>
+				<p>If you experience issues with <strong>Canvas</strong> or want to install it, please refer to the <a href="https://www.npmjs.com/package/canvas">canvas</a> repository, if you feel you found an issue in this package, feel free to file an issue <a href="https://github.com/kyranet/canvasConstructor/issues">here</a>, or make a <a href="https://help.github.com/articles/about-pull-requests/">Pull Request</a> if you have the fix.</p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-class">
+						<a href="classes/canvas.html" class="tsd-kind-icon">Canvas</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/beveledradiusoptions.html" class="tsd-kind-icon">Beveled<wbr>Radius<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/gradientstop.html" class="tsd-kind-icon">Gradient<wbr>Stop</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/imagedatacallback.html" class="tsd-kind-icon">Image<wbr>Data<wbr>Callback</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/measuretextcallback.html" class="tsd-kind-icon">Measure<wbr>Text<wbr>Callback</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/patterncallback.html" class="tsd-kind-icon">Pattern<wbr>Callback</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/wraptextcallback.html" class="tsd-kind-icon">Wrap<wbr>Text<wbr>Callback</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#antialias" class="tsd-kind-icon">Anti<wbr>Alias</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#globalcompositeoperation" class="tsd-kind-icon">Global<wbr>Composite<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#imageresolvable" class="tsd-kind-icon">Image<wbr>Resolvable</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#patternquality" class="tsd-kind-icon">Pattern<wbr>Quality</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#patternrepeat" class="tsd-kind-icon">Pattern<wbr>Repeat</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#textdrawingmode" class="tsd-kind-icon">Text<wbr>Drawing<wbr>Mode</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#blurlaplacematrix" class="tsd-kind-icon">blur<wbr>LaPlace<wbr>Matrix</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#browser" class="tsd-kind-icon">browser</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#edgelaplacematrix" class="tsd-kind-icon">edge<wbr>LaPlace<wbr>Matrix</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#getfontheight" class="tsd-kind-icon">get<wbr>Font<wbr>Height</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#grayscale" class="tsd-kind-icon">grayscale</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#internalcanvas" class="tsd-kind-icon">internal<wbr>Canvas</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#invertgreyscale" class="tsd-kind-icon">invert<wbr>Greyscale</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#myoldfriend" class="tsd-kind-icon">my<wbr>Old<wbr>Friend</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#sharpenlaplacematrix" class="tsd-kind-icon">sharpen<wbr>LaPlace<wbr>Matrix</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#blur" class="tsd-kind-icon">blur</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#brightness" class="tsd-kind-icon">brightness</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#convolute" class="tsd-kind-icon">convolute</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#darkness" class="tsd-kind-icon">darkness</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#edge" class="tsd-kind-icon">edge</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#greyscale" class="tsd-kind-icon">greyscale</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#invert" class="tsd-kind-icon">invert</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#invertgrayscale" class="tsd-kind-icon">invert<wbr>Grayscale</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#invertedthreshold" class="tsd-kind-icon">inverted<wbr>Threshold</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#sepia" class="tsd-kind-icon">sepia</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#sharpen" class="tsd-kind-icon">sharpen</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#silhouette" class="tsd-kind-icon">silhouette</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#textwrap" class="tsd-kind-icon">text<wbr>Wrap</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#threshold" class="tsd-kind-icon">threshold</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
 </body>
 </html>
