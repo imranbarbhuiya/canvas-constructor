@@ -438,7 +438,7 @@ export declare class Canvas {
      * @param height The height to draw the image in the destination canvas. This allows scaling of the drawn image. If not specified, the image is not scaled in height when drawn.
      * @param radius The radius for the circle
      */
-    printCircularImage(imageOrBuffer: ImageResolvable, x: number, y: number, width: number, height: number, radius: number): this;
+    printCircularImage(imageOrBuffer: ImageResolvable, x: number, y: number, radius: number): this;
     /**
      * Add a beveled image.
      * @param imageOrBuffer The image's buffer.
