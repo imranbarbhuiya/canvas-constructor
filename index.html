@@ -66,11 +66,9 @@
 				<p><a href="https://discord.gg/taNgb9d"><img src="https://discordapp.com/api/guilds/437335547711848458/embed.png" alt="Discord"></a>
 					<a href="https://www.npmjs.com/package/canvas-constructor"><img src="https://img.shields.io/npm/v/canvas-constructor.svg?maxAge=3600" alt="npm"></a>
 					<a href="https://www.npmjs.com/package/canvas-constructor"><img src="https://img.shields.io/npm/dt/canvas-constructor.svg?maxAge=3600" alt="npm"></a>
-					<a href="https://travis-ci.org/kyranet/canvas-constructor"><img src="https://travis-ci.org/kyranet/canvas-constructor.svg?branch=master" alt="Build Status"></a>
 					<a href="https://lgtm.com/projects/g/kyranet/canvas-constructor/alerts/"><img src="https://img.shields.io/lgtm/alerts/g/kyranet/canvas-constructor.svg?logo=lgtm&logoWidth=18" alt="Total alerts"></a>
-					<a href="https://dependabot.com"><img src="https://api.dependabot.com/badges/status?host=github&repo=kyranet/canvas-constructor" alt="Dependabot Status"></a>
 				<a href="https://raw.githubusercontent.com/kyranet/canvas-constructor/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="GitHub license"></a></p>
-				<p>An ES6 function for node-canvas with built-in utilities and chained methods.</p>
+				<p>An ES6 chainable class for node-canvas with built-in utilities.</p>
 				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
 					<h2>Installation</h2>
 				</a>
@@ -107,9 +105,8 @@
 					<li>Write the text &#39;Hello World!&#39; in the position (130, 150)</li>
 					<li>Return a buffer.</li>
 				</ul>
-				<p>Now, let&#39;s suppose we want to add images. I&#39;d recommend <a href="https://github.com/bdistin/fs-nextra">fs-nextra</a>, by <a href="https://github.com/bdistin/">BDISTIN</a>, it requires Node.js 8.5.0 to work (it promisifies the async fs methods with <code>Util.promisify()</code>), it&#39;s a dependency-free and lightweight package that provides support for <strong>atomic operations</strong>.</p>
+				<p>Now, let&#39;s suppose we want to add images, we&#39;ll use <code>Canvas.resolveImage</code>, which works in both Node.js and browser:</p>
 				<pre><code class="language-js"><span class="hljs-keyword">const</span> { Canvas } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;canvas-constructor&#x27;</span>);
-<span class="hljs-keyword">const</span> fsn = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;fs-nextra&#x27;</span>);
 
 <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createCanvas</span>(<span class="hljs-params"></span>) </span>{
     <span class="hljs-keyword">const</span> image = <span class="hljs-keyword">await</span> Canvas.resolveImage(<span class="hljs-string">&#x27;./images/kitten.png&#x27;</span>);
