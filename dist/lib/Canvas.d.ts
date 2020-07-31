@@ -1,5 +1,5 @@
 /// <reference types="node" />
-import { Canvas as NodeCanvas, CanvasRenderingContext2D, Image, JpegConfig, PdfConfig, PngConfig } from 'canvas';
+import { CanvasRenderingContext2D, Image, JpegConfig, PdfConfig, PngConfig } from 'canvas';
 export interface ImageDataCallback {
     (this: Canvas, data: ImageData, canvas: Canvas): unknown;
 }
@@ -39,7 +39,8 @@ export declare type AntiAlias = CanvasRenderingContext2D['antialias'];
 export declare type TextDrawingMode = CanvasRenderingContext2D['textDrawingMode'];
 export declare type PatternQuality = CanvasRenderingContext2D['patternQuality'];
 export declare type PatternRepeat = 'repeat' | 'repeat-x' | 'repeat-y' | 'no-repeat' | '' | null;
-export declare type ImageResolvable = NodeCanvas | Image | Buffer;
+export declare type LoadableImage = string | Buffer;
+export declare type ImageResolvable = Canvas | Image;
 export declare class Canvas {
     /**
      * The constructed Canvas
@@ -51,6 +52,18 @@ export declare class Canvas {
      * @since 0.0.1
      */
     private context;
+    /**
+     * Initialize canvas-constructor in a browser.
+     * @param canvas An HTMLCanvasElement.
+     * <script type="text/javascript" src="canvasconstructor.master.min.js"></script>
+     * <script type="text/javascript">
+     * const canvasElement = document.getElementById('canvas');
+     * new CanvasConstructor.Canvas(canvasElement)
+     *     .setColor('green')
+     *     .printRectangle(10, 10, 100, 100);
+     * </script>
+     */
+    constructor(canvas: HTMLCanvasElement);
     /**
      * Initialize canvas-constructor
      * @param width The canvas' width in pixels.
@@ -80,31 +93,26 @@ export declare class Canvas {
      * Change the current canvas' size.
      * @param width The new width for the canvas.
      * @param height The new height for the canvas.
-     * @chainable
      */
     changeCanvasSize(width: number, height: number): this;
     /**
      * Change the current canvas' width.
      * @param width The new width for the canvas.
-     * @chainable
      */
     changeCanvasWidth(width: number): this;
     /**
      * Change the current canvas' height.
      * @param height The new height for the canvas.
-     * @chainable
      */
     changeCanvasHeight(height: number): this;
     /**
      * Save the entire state of the canvas by pushing the current state onto a stack.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/save
      */
     save(): this;
     /**
      * Restores the most recently saved canvas by popping the top entry in the drawing state stack. If there is no saved
      * state, this method does nothing.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/restore
      */
     restore(): this;
@@ -112,7 +120,6 @@ export declare class Canvas {
      * Adds a rotation to the transformation matrix. The angle argument represents a clockwise rotation angle and is
      * expressed in radians.
      * @param angle The angle to rotate clockwise in radians.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/rotate
      */
     rotate(angle: number): this;
@@ -120,7 +127,6 @@ export declare class Canvas {
      * Adds a scaling transformation to the canvas units by X horizontally and by y vertically.
      * @param x Scaling factor in the horizontal direction.
      * @param y Scaling factor in the vertical direction.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/scale
      */
     scale(x: number, y: number): this;
@@ -128,14 +134,12 @@ export declare class Canvas {
      * Adds a translation transformation by moving the canvas and its origin X horizontally and y vertically on the grid.
      * @param x Distance to move in the horizontal direction.
      * @param y Distance to move in the vertical direction.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/translate
      */
     translate(x: number, y: number): this;
     /**
      * Turns the path currently being built into the current clipping path.
      * @param fillRule The algorithm by which to determine if a point is inside a path or outside a path.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/clip
      */
     clip(fillRule?: CanvasFillRule): this;
@@ -148,7 +152,6 @@ export declare class Canvas {
      * @param d Vertical scaling.
      * @param e Horizontal moving.
      * @param f Vertical moving.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/setTransform
      */
     setTransform(a: number, b: number, c: number, d: number, e: number, f: number): this;
@@ -156,20 +159,17 @@ export declare class Canvas {
      * Resets (overrides) the current transformation to the identity matrix and then invokes a transformation described
      * by the arguments of this method.
      * @param matrix The new transform matrix.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/setTransform
      */
     setTransform(transform?: DOMMatrix): this;
     /**
      * Reset the transformation.
-     * @chainable
      */
     resetTransformation(): this;
     /**
      * Returns an ImageData object representing the underlying pixel data for the area of the canvas
      * denoted by the entire Canvas. This method is not affected by the canvas transformation matrix.
      * @param callback The callback to be called.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/getImageData
      */
     getImageData(): ImageData;
@@ -177,7 +177,6 @@ export declare class Canvas {
      * Calls the callback with an ImageData object representing the underlying pixel data for the area of the canvas
      * denoted by the entire Canvas. This method is not affected by the canvas transformation matrix.
      * @param callback The callback to be called.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/getImageData
      */
     getImageData(callback: ImageDataCallback): this;
@@ -188,7 +187,6 @@ export declare class Canvas {
      * @param y The Y coordinate of the upper left corner of the rectangle from which the ImageData will be extracted.
      * @param width The width of the rectangle from which the ImageData will be extracted.
      * @param height The height of the rectangle from which the ImageData will be extracted.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/getImageData
      */
     getImageData(x: number, y: number, width: number, height: number): ImageData;
@@ -201,7 +199,6 @@ export declare class Canvas {
      * @param width The width of the rectangle from which the ImageData will be extracted.
      * @param height The height of the rectangle from which the ImageData will be extracted.
      * @param callback The callback to be called.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/getImageData
      */
     getImageData(x: number, y: number, width: number, height: number, callback: ImageDataCallback): this;
@@ -211,7 +208,6 @@ export declare class Canvas {
      * @param imagedata An ImageData object containing the array of pixel values.
      * @param dx Horizontal position (x-coordinate) at which to place the image data in the destination canvas.
      * @param dy Vertical position (y-coordinate) at which to place the image data in the destination canvas.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/putImageData
      */
     putImageData(imagedata: ImageData, dx: number, dy: number): this;
@@ -220,20 +216,18 @@ export declare class Canvas {
      * Only the pixels from that rectangle are painted.
      * This method is not affected by the canvas transformation matrix.
      * @param imagedata An ImageData object containing the array of pixel values.
-     * @param dx Horizontal position (x-coordinate) at which to place the image data in the destination canvas.
-     * @param dy Vertical position (y-coordinate) at which to place the image data in the destination canvas.
+     * @param x Horizontal position (x-coordinate) at which to place the image data in the destination canvas.
+     * @param y Vertical position (y-coordinate) at which to place the image data in the destination canvas.
      * @param dirtyX Horizontal position (x-coordinate). The X coordinate of the top left hand corner of your Image data. Defaults to 0.
      * @param dirtyY Vertical position (y-coordinate). The Y coordinate of the top left hand corner of your Image data. Defaults to 0.
      * @param dirtyWidth Width of the rectangle to be painted. Defaults to the width of the image data.
      * @param dirtyHeight Height of the rectangle to be painted. Defaults to the height of the image data.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/putImageData
      */
-    putImageData(imagedata: ImageData, dx: number, dy: number, dirtyX: number, dirtyY: number, dirtyWidth: number, dirtyHeight: number): this;
+    putImageData(imagedata: ImageData, x: number, y: number, dirtyX: number, dirtyY: number, dirtyWidth: number, dirtyHeight: number): this;
     /**
      * Fills the current or given path with the current fill style using the non-zero or even-odd winding rule.
      * @param fillRule The algorithm by which to determine if a point is inside a path or outside a path.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fill
      */
     fill(fillRule?: CanvasFillRule): this;
@@ -244,54 +238,49 @@ export declare class Canvas {
      * @param dy The position y to start drawing the element.
      * @param maxWidth The maximum width to draw. If specified, and the string is computed to be wider than this width,
      * the font is adjusted to use a more horizontally condensed font.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fillText
      */
-    addText(text: string, x: number, y: number, maxWidth?: number): this;
+    printText(text: string, x: number, y: number, maxWidth?: number): this;
     /**
      * Add responsive text
      * @param text The text to write.
      * @param x The position x to start drawing the element.
      * @param y The position y to start drawing the element.
      * @param maxWidth The max length in pixels for the text.
-     * @chainable
      * @example
      * new Canvas(400, 300)
      *     .setTextFont('40px Tahoma')
      *     .addResponsiveText('Hello World', 30, 30, 50)
      *     .toBuffer();
      */
-    addResponsiveText(text: string, x: number, y: number, maxWidth: number): this;
+    printResponsiveText(text: string, x: number, y: number, maxWidth: number): this;
     /**
      * Add text with line breaks (node-canvas and web canvas compatible)
      * @param text The text to write.
      * @param x The position x to start drawing the element.
      * @param y The position y to start drawing the element.
-     * @chainable
      * @example
      * new Canvas(400, 300)
      *     .setTextFont('25px Tahoma')
      *     .addMultilineText('This is a really\nlong text!', 139, 360)
      *     .toBuffer();
      */
-    addMultilineText(text: string, x: number, y: number): this;
+    printMultilineText(text: string, x: number, y: number): this;
     /**
      * Wrap the text in multiple lines and write it
      * @param text The text to wrap and write.
      * @param x The position x to start drawing the element.
      * @param y The position y to start drawing the element.
      * @param wrapWidth The width in pixels of the line wrap
-     * @chainable
      * @example
      * new Canvas(400, 300)
      *     .setTextFont('25px Tahoma')
      *     .addWrappedText('This is a really long text!', 139, 360)
      *     .toBuffer();
      */
-    addWrappedText(text: string, x: number, y: number, wrapWidth: number): this;
+    printWrappedText(text: string, x: number, y: number, wrapWidth: number): this;
     /**
      * Strokes the current or given path with the current stroke style using the non-zero winding rule.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/stroke
      */
     stroke(): this;
@@ -302,10 +291,9 @@ export declare class Canvas {
      * @param y The y axis of the coordinate for the rectangle starting point.
      * @param width The rectangle's width.
      * @param height The rectangle's height.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/strokeRect
      */
-    addStrokeRect(x: number, y: number, width: number, height: number): this;
+    printStrokeRect(x: number, y: number, width: number, height: number): this;
     /**
      * Add stroked text.
      * @param text The text to write.
@@ -313,10 +301,9 @@ export declare class Canvas {
      * @param y The position y to start drawing the element.
      * @param maxWidth The maximum width to draw. If specified, and the string is computed to be wider than this width,
      * the font is adjusted to use a more horizontally condensed font.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/strokeText
      */
-    addStrokeText(text: string, x: number, y: number, maxWidth?: number): this;
+    printStrokeText(text: string, x: number, y: number, maxWidth?: number): this;
     /**
      * Measure a text's width given a string.
      * @param text The text to measure.
@@ -341,7 +328,6 @@ export declare class Canvas {
      * number. If you use an arrow function, you might want to use the second argument which is the instance of the
      * class. Otherwise, the keyword this is binded to the class instance itself, so you can use it safely.
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/measureText
-     * @chainable
      * @example
      * new Canvas(500, 400)
      *     .setTextFont('40px Tahoma')
@@ -365,20 +351,17 @@ export declare class Canvas {
     /**
      * Set the new font size, unlike setTextFont, this only requires the number.
      * @param size The new size to set
-     * @chainable
      */
     setTextSize(size: number): this;
     /**
      * Specifies the color or style to use for the lines around shapes.
      * @param color A canvas' color resolvable.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/strokeStyle
      */
     setStroke(color: string | CanvasGradient | CanvasPattern): this;
     /**
      * Sets the thickness of lines in space units.
      * @param width A number specifying the line width in space units.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineWidth
      */
     setLineWidth(width: number): this;
@@ -386,7 +369,6 @@ export declare class Canvas {
     /**
      * Sets the line dash pattern offset or "phase" to achieve a "marching ants" effect
      * @param value A float specifying the amount of the offset. Initially 0.0.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineDashOffset
      */
     setLineDashOffset(value: number): this;
@@ -395,7 +377,6 @@ export declare class Canvas {
      * together (degenerate segments with zero lengths, whose specified endpoints and control points are exactly at the
      * same position, are skipped).
      * @param value The line join type.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineJoin
      */
     setLineJoin(value: CanvasLineJoin): this;
@@ -403,7 +384,6 @@ export declare class Canvas {
      * Determines how the end points of every line are drawn. There are three possible values for this property and
      * those are: butt, round and square. By default this property is set to butt.
      * @param value The line join type.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineCap
      */
     setLineCap(value: CanvasLineCap): this;
@@ -414,7 +394,6 @@ export declare class Canvas {
      * space units). If the number of elements in the array is odd, the elements of the array get copied and
      * concatenated. For example, [5, 15, 25] will become [5, 15, 25, 5, 15, 25]. If the array is empty, the line dash
      * list is cleared and line strokes return to being solid.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/setLineDash
      */
     setLineDash(segments: number[]): this;
@@ -423,7 +402,6 @@ export declare class Canvas {
      * @param imageOrBuffer The image's buffer.
      * @param x The X coordinate in the destination canvas at which to place the top-left corner of the source image.
      * @param y The Y coordinate in the destination canvas at which to place the top-left corner of the source image.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage
      */
     printImage(imageOrBuffer: ImageResolvable, x: number, y: number): this;
@@ -434,7 +412,6 @@ export declare class Canvas {
      * @param y The Y coordinate in the destination canvas at which to place the top-left corner of the source image.
      * @param width The width to draw the image in the destination canvas. This allows scaling of the drawn image. If not specified, the image is not scaled in width when drawn.
      * @param height The height to draw the image in the destination canvas. This allows scaling of the drawn image. If not specified, the image is not scaled in height when drawn.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage
      */
     printImage(imageOrBuffer: ImageResolvable, x: number, y: number, width: number, height: number): this;
@@ -449,7 +426,6 @@ export declare class Canvas {
      * @param sourceY The Y coordinate of the top left corner of the sub-rectangle of the source image to draw into the destination context.
      * @param sourceWidth The width of the sub-rectangle of the source image to draw into the destination context. If not specified, the entire rectangle from the coordinates specified by sx and sy to the bottom-right corner of the image is used.
      * @param sourceHeight The height of the sub-rectangle of the source image to draw into the destination context.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage
      */
     printImage(imageOrBuffer: ImageResolvable, sx: number, sy: number, sw: number, sh: number, dx: number, dy: number, dw: number, dh: number): this;
@@ -461,7 +437,6 @@ export declare class Canvas {
      * @param width The width to draw the image in the destination canvas. This allows scaling of the drawn image. If not specified, the image is not scaled in width when drawn.
      * @param height The height to draw the image in the destination canvas. This allows scaling of the drawn image. If not specified, the image is not scaled in height when drawn.
      * @param radius The radius for the circle
-     * @chainable
      */
     printCircularImage(imageOrBuffer: ImageResolvable, x: number, y: number, width: number, height: number, radius: number): this;
     /**
@@ -472,7 +447,6 @@ export declare class Canvas {
      * @param width The width of the element.
      * @param height The height of the element.
      * @param radius The radius for the new image.
-     * @chainable
      */
     printRoundedImage(imageOrBuffer: ImageResolvable, x: number, y: number, width: number, height: number, radius: BeveledRadiusOptions | number): this;
     /**
@@ -481,16 +455,14 @@ export declare class Canvas {
      * @param {number} y The position y in the center of the ircle.
      * @param {number} radius The radius for the clip.
      * @returns {this}
-     * @chainable
      */
-    addCircle(x: number, y: number, radius: number): this;
+    printCircle(x: number, y: number, radius: number): this;
     /**
      * Add a rectangle.
      * @param x The position x to start drawing the element.
      * @param y The position y to start drawing the element.
      * @param width The width of the element.
      * @param height The height of the element.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fillRect
      */
     printRectangle(x: number, y: number, width: number, height: number): this;
@@ -501,7 +473,6 @@ export declare class Canvas {
      * @param width  The width of the element.
      * @param height The height of the element.
      * @param radius The radius for the bevels.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fillRect
      * @example
      * // Radius argument
@@ -539,9 +510,8 @@ export declare class Canvas {
      * @param start The degree in radians to start drawing the circle.
      * @param angle The degree in radians to finish drawing the circle, defaults to a full circle.
      * @param antiClockwise Whether the path should be anti-clockwise.
-     * @chainable
      */
-    createRoundPath(dx: number, dy: number, radius: number, start?: number, angle?: number, antiClockwise?: boolean): this;
+    createCircularPath(dx: number, dy: number, radius: number, start?: number, angle?: number, antiClockwise?: boolean): this;
     /**
      * Create a round clip.
      * @param dx The position x in the center of the clip's circle.
@@ -550,17 +520,15 @@ export declare class Canvas {
      * @param start The degree in radians to start drawing the circle.
      * @param angle The degree in radians to finish drawing the circle, defaults to a full circle.
      * @param antiClockwise Whether the path should be anti-clockwise.
-     * @chainable
      * @see createRoundPath
      */
-    createRoundClip(dx: number, dy: number, radius: number, start?: number, angle?: number, antiClockwise?: boolean): this;
+    createCircularClip(dx: number, dy: number, radius: number, start?: number, angle?: number, antiClockwise?: boolean): this;
     /**
      * Create a rectangle path.
      * @param x The position x in the left corner.
      * @param y The position y in the upper corner.
      * @param width The width of the rectangle.
      * @param height The height of the rectangle.
-     * @chainable
      */
     createRectanglePath(x: number, y: number, width: number, height: number): this;
     /**
@@ -569,7 +537,6 @@ export declare class Canvas {
      * @param y The position y in the upper corner.
      * @param width The width of the rectangle.
      * @param height The height of the rectangle.
-     * @chainable
      */
     createRectangleClip(x: number, y: number, width: number, height: number): this;
     /**
@@ -579,7 +546,6 @@ export declare class Canvas {
      * @param width The width of clip.
      * @param height The height of clip.
      * @param radius The radius for clip's rounded borders.
-     * @chainable
      */
     createBeveledPath(x: number, y: number, width: number, height: number, radius: number | BeveledRadiusOptions): this;
     /**
@@ -589,7 +555,6 @@ export declare class Canvas {
      * @param width The width of clip.
      * @param height The height of clip.
      * @param radius The radius for clip's rounded borders.
-     * @chainable
      * @example
      * // Radius argument, fill the content
      * new Canvas(200, 200)
@@ -625,63 +590,63 @@ export declare class Canvas {
     /**
      * Set a color for the canvas' context.
      * @param color A canvas' color resolvable.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fillStyle
      */
     setColor(color: string | CanvasGradient | CanvasPattern): this;
     /**
      * Change the font.
      * @param font The font's name to set.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/font
      */
     setTextFont(font: string): this;
     /**
      * Change the font alignment.
      * @param align The font's alignment to set.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/textAlign
      */
     setTextAlign(align: CanvasTextAlign): this;
     /**
      * Change the font's baseline.
      * @param baseline The font's baseline to set.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/textBaseline
      */
     setTextBaseline(baseline: CanvasTextBaseline): this;
     /**
      * Starts a new path by emptying the list of sub-paths.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/beginPath
      */
     beginPath(): this;
     /**
      * Causes the point of the pen to move back to the start of the current sub-path.
      * If the shape has already been closed or has only one point, this function does nothing.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/closePath
      */
     closePath(): this;
     /**
      * Creates a pattern using the specified image. It repeats the source in the directions specified by the repetition
-     * argument.
-     * @param imageOrBuffer A Canvas Image to be used as the image to repeat.
+     * argument, and returns it.
+     * @param image A Canvas Image to be used as the image to repeat.
      * @param repetition The repeat mode.
-     * @param callback The callback to take the createPattern.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/createPattern
      */
-    createPattern(imageOrBuffer: Buffer | Image, repetition: PatternRepeat, callback: PatternCallback): this;
+    createPattern(image: Canvas | Image, repetition: PatternRepeat): CanvasPattern;
+    /**
+     * Creates a pattern using the specified image. It repeats the source in the directions specified by the repetition
+     * argument, and calls the callback.
+     * @param image A Canvas Image to be used as the image to repeat.
+     * @param repetition The repeat mode.
+     * @param callback The callback to take the createPattern.
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/createPattern
+     */
+    createPattern(image: Canvas | Image, repetition: PatternRepeat, callback: PatternCallback): this;
     /**
      * Creates a pattern using the specified image. It repeats the source in the directions specified by the repetition
      * argument, and prints it.
-     * @param imageOrBuffer A Canvas Image to be used as the image to repeat.
+     * @param image A Canvas Image to be used as the image to repeat.
      * @param repetition The repeat mode.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/createPattern
      */
-    printPattern(imageOrBuffer: Buffer | Image, repetition: PatternRepeat): this;
+    printPattern(image: ImageResolvable, repetition: PatternRepeat): this;
     /**
      * Creates a gradient along the line given by the coordinates represented by the parameters.
      * The coordinates are global, the second point does not rely on the position of the first and vice versa.
@@ -702,7 +667,6 @@ export declare class Canvas {
      * @param x1 The x axis of the coordinate of the end point.
      * @param y1 The y axis of the coordinate of the end point.
      * @param steps The gradient steps.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/createLinearGradient
      * @example
      * new Canvas(200, 200)
@@ -711,7 +675,7 @@ export declare class Canvas {
      *         { position: 0.25, color: 'red' },
      *         { position: 0.5, color: 'blue' }
      *     ])
-     *     .addRect(10, 10, 200, 100)
+     *     .printRectangle(10, 10, 200, 100)
      */
     printLinearColorGradient(x0: number, y0: number, x1: number, y1: number, steps?: readonly GradientStop[]): this;
     /**
@@ -723,7 +687,6 @@ export declare class Canvas {
      * @param x1 The x axis of the coordinate of the end point.
      * @param y1 The y axis of the coordinate of the end point.
      * @param steps The gradient steps.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/createLinearGradient
      * @example
      * new Canvas(200, 200)
@@ -732,7 +695,7 @@ export declare class Canvas {
      *         { position: 0.25, color: 'red' },
      *         { position: 0.5, color: 'blue' }
      *     ])
-     *     .addRect(10, 10, 200, 100)
+     *     .printRectangle(10, 10, 200, 100)
      */
     printLinearStrokeGradient(x0: number, y0: number, x1: number, y1: number, steps?: readonly GradientStop[]): this;
     /**
@@ -757,7 +720,6 @@ export declare class Canvas {
      * @param y1 The y axis of the coordinate of the end circle.
      * @param r1 The radius of the end circle.
      * @param steps The gradient steps.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/createRadialGradient
      */
     printRadialColorGradient(x0: number, y0: number, r0: number, x1: number, y1: number, r1: number, steps?: readonly GradientStop[]): this;
@@ -771,7 +733,6 @@ export declare class Canvas {
      * @param y1 The y axis of the coordinate of the end circle.
      * @param r1 The radius of the end circle.
      * @param steps The gradient steps.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/createRadialGradient
      */
     printRadialStrokeGradient(x0: number, y0: number, r0: number, x1: number, y1: number, r1: number, steps?: readonly GradientStop[]): this;
@@ -786,10 +747,23 @@ export declare class Canvas {
      * @param startAngle The starting point, measured from the x axis, from which it will be drawn, expressed in radians.
      * @param endAngle The end ellipse's angle to which it will be drawn, expressed in radians.
      * @param anticlockwise An optional Boolean which, if true, draws the ellipse anticlockwise (counter-clockwise), otherwise in a clockwise direction.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/ellipse
      */
-    createEllipse(x: number, y: number, radiusX: number, radiusY: number, rotation: number, startAngle: number, endAngle: number, anticlockwise?: boolean): this;
+    createEllipsePath(x: number, y: number, radiusX: number, radiusY: number, rotation: number, startAngle: number, endAngle: number, anticlockwise?: boolean): this;
+    /**
+     * Creates an ellipse clip which is centered at (X, Y) position with the radius radiusX and radiusY starting at
+     * startAngle and ending at endAngle going in the given direction by anticlockwise (defaulting to clockwise).
+     * @param x The x axis of the coordinate for the ellipse's center.
+     * @param y The y axis of the coordinate for the ellipse's center.
+     * @param radiusX The ellipse's major-axis radius.
+     * @param radiusY The ellipse's minor-axis radius.
+     * @param rotation The rotation for this ellipse, expressed in radians.
+     * @param startAngle The starting point, measured from the x axis, from which it will be drawn, expressed in radians.
+     * @param endAngle The end ellipse's angle to which it will be drawn, expressed in radians.
+     * @param anticlockwise An optional Boolean which, if true, draws the ellipse anticlockwise (counter-clockwise), otherwise in a clockwise direction.
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/ellipse
+     */
+    createEllipseClip(x: number, y: number, radiusX: number, radiusY: number, rotation: number, startAngle: number, endAngle: number, anticlockwise?: boolean): this;
     /**
      * Adds an arc to the path which is centered at (X, Y) position with radius r starting at startAngle and ending at
      * endAngle going in the given direction by anticlockwise (defaulting to clockwise).
@@ -799,7 +773,6 @@ export declare class Canvas {
      * @param startAngle The angle at which the arc starts, measured clockwise from the positive x axis and expressed in radians.
      * @param endAngle The angle at which the arc ends, measured clockwise from the positive x axis and expressed in radians.
      * @param anticlockwise An optional Boolean which, if true, causes the arc to be drawn counter-clockwise between the two angles. By default it is drawn clockwise.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/arc
      */
     arc(x: number, y: number, radius: number, startAngle: number, endAngle: number, anticlockwise?: boolean): this;
@@ -810,7 +783,6 @@ export declare class Canvas {
      * @param x2 The x axis of the coordinate for the second control point.
      * @param y2 The y axis of the coordinate for the second control point.
      * @param radius The arc's radius.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/arcTo
      */
     arcTo(x1: number, y1: number, x2: number, y2: number, radius: number): this;
@@ -822,7 +794,6 @@ export declare class Canvas {
      * @param cpy The y axis of the coordinate for the control point.
      * @param x The x axis of the coordinate for the end point.
      * @param y The y axis of the coordinate for the end point.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/quadraticCurveTo
      */
     quadraticCurveTo(cpx: number, cpy: number, x: number, y: number): this;
@@ -836,7 +807,6 @@ export declare class Canvas {
      * @param cp2y The y axis of the coordinate for the second control point.
      * @param x The x axis of the coordinate for the end point.
      * @param y The y axis of the coordinate for the end point.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/bezierCurveTo
      */
     bezierCurveTo(cp1x: number, cp1y: number, cp2x: number, cp2y: number, x: number, y: number): this;
@@ -844,7 +814,6 @@ export declare class Canvas {
      * Connects the last point in the sub-path to the x, y coordinates with a straight line
      * @param x The x axis of the coordinate for the end of the line.
      * @param y The y axis of the coordinate for the end of the line.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineTo
      */
     lineTo(x: number, y: number): this;
@@ -852,35 +821,30 @@ export declare class Canvas {
      * Moves the starting point of a new sub-path to the (X, Y) coordinates.
      * @param x The x axis of the point.
      * @param y The y axis of the point.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/moveTo
      */
     moveTo(x: number, y: number): this;
     /**
      * Set the shadow's blur.
      * @param radius The shadow's blur radius to set.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/shadowBlur
      */
     setShadowBlur(radius: number): this;
     /**
      * Set the shadow's color.
      * @param color A canvas' color resolvable to set as shadow's color.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/shadowColor
      */
     setShadowColor(color: string): this;
     /**
      * Set the property that specifies the distance that the shadow will be offset in horizontal distance.
      * @param value The value in pixels for the distance.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/shadowOffsetX
      */
     setShadowOffsetX(value: number): this;
     /**
      * Set the property that specifies the distance that the shadow will be offset in vertical distance.
      * @param value The value in pixels for the distance.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/shadowOffsetY
      */
     setShadowOffsetY(value: number): this;
@@ -889,14 +853,12 @@ export declare class Canvas {
      * setting, zero, negative, Infinity and NaN values are ignored; otherwise the current value is set to the new value.
      * @param value A number specifying the miter limit ratio in space units. Zero, negative, Infinity and NaN values
      * are ignored.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/miterLimit
      */
     setMiterLimit(value: number): this;
     /**
      * Change the pattern quality
      * @param pattern The pattern quality.
-     * @chainable
      */
     setPatternQuality(pattern: PatternQuality): this;
     /**
@@ -905,27 +867,23 @@ export declare class Canvas {
      * subpixel precision for glyph, so this will be noticeably lower quality for text positioning in cases such as
      * rotated text. Also, strokeText in glyph will act the same as fillText, except using the stroke style for the fill.
      * @param mode The drawing mode.
-     * @chainable
      */
     setTextDrawingMode(mode: TextDrawingMode): this;
     /**
      * Set anti-aliasing mode.
      * @param antialias The antialias mode.
-     * @chainable
      */
     setAntialiasing(antialias: AntiAlias): this;
     /**
      * Sets the type of compositing operation to apply when drawing new shapes, where type is a string identifying which
      * of the compositing or blending mode operations to use.
      * @param type The global composite operation mode.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation
      */
     setGlobalCompositeOperation(type: GlobalCompositeOperation): this;
     /**
      * Modify the alpha value that is applied to shapes and images before they are drawn into the canvas.
      * @param value The alpha value, from 0.0 (fully transparent) to 1.0 (fully opaque)
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/globalAlpha
      */
     setGlobalAlpha(value: number): this;
@@ -944,7 +902,6 @@ export declare class Canvas {
      *     .resetShadows()
      *     // Render the text without shadows
      *     .addText('World!', 30, 100);
-     * @chainable
      */
     resetShadows(): this;
     /**
@@ -955,7 +912,6 @@ export declare class Canvas {
      * @param start The degree in radians to start drawing the circle.
      * @param angleThe degree in radians to finish drawing the circle, defaults to a full circle.
      * @param antiClockwise Whether or not the angle should be anti-clockwise.
-     * @chainable
      */
     clearCircle(x: number, y: number, radius: number, start?: number, angle?: number, antiClockwise?: boolean): this;
     /**
@@ -964,7 +920,6 @@ export declare class Canvas {
      * @param y The position y to start drawing the element.
      * @param width The width of the element.
      * @param height The height of the element.
-     * @chainable
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/clearRect
      */
     clearRectangle(dx?: number, dy?: number, width?: number, height?: number): this;
@@ -1088,7 +1043,6 @@ export declare class Canvas {
      * @param text The text to wrap
      * @param wrapWidth The wrap width
      * @param callback The callback receiving the wrapped text.
-     * @chainable
      * @example
      * // Wrap the text and add it
      * const buffer = new Canvas(500, 300)
@@ -1099,36 +1053,5 @@ export declare class Canvas {
      *     .toBuffer(); // Returns a Buffer
      */
     wrapText(text: string, wrapWidth: number, callback: WrapTextCallback): this;
-    /**
-     * Resolves an Image or Buffer
-     * @param imageOrBuffer An Image instance or a buffer
-     * @param cb The callback
-     */
-    static resolveImage(imageOrBuffer: ImageResolvable, cb: (image: NodeCanvas | Image) => unknown): NodeCanvas | Image;
-    /**
-     * Create a canvas from an HTMLCanvasElement or NodeCanvas instance
-     * @since 2.1.0
-     * @param canvas The canvas element
-     * @example
-     * // Node.js
-     * const Canvas = require('canvas');
-     * const { Canvas: CanvasConstructor } = require('canvas-constructor');
-     *
-     * const canvasInstance = Canvas.createCanvas(200, 200);
-     * const buffer = CanvasConstructor.from(canvasElement)
-     *     .setColor('green')
-     *     .addRect(10, 10, 100, 100)
-     *     .toBuffer();
-     * @example
-     * // Browsers
-     * <script type="text/javascript" src="canvasconstructor.master.min.js"></script>
-     * <script type="text/javascript">
-     * const canvasElement = document.getElementById('canvas');
-     * CanvasConstructor.Canvas.from(canvasElement)
-     *     .setColor('green')
-     *     .addRect(10, 10, 100, 100);
-     * </script>
-     */
-    static from(canvas: HTMLCanvasElement): Canvas;
 }
 //# sourceMappingURL=Canvas.d.ts.map
