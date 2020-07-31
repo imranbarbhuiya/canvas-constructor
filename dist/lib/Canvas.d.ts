@@ -250,7 +250,7 @@ export declare class Canvas {
      * @example
      * new Canvas(400, 300)
      *     .setTextFont('40px Tahoma')
-     *     .addResponsiveText('Hello World', 30, 30, 50)
+     *     .printResponsiveText('Hello World', 30, 30, 50)
      *     .toBuffer();
      */
     printResponsiveText(text: string, x: number, y: number, maxWidth: number): this;
@@ -262,7 +262,7 @@ export declare class Canvas {
      * @example
      * new Canvas(400, 300)
      *     .setTextFont('25px Tahoma')
-     *     .addMultilineText('This is a really\nlong text!', 139, 360)
+     *     .printMultilineText('This is a really\nlong text!', 139, 360)
      *     .toBuffer();
      */
     printMultilineText(text: string, x: number, y: number): this;
@@ -275,7 +275,7 @@ export declare class Canvas {
      * @example
      * new Canvas(400, 300)
      *     .setTextFont('25px Tahoma')
-     *     .addWrappedText('This is a really long text!', 139, 360)
+     *     .printWrappedText('This is a really long text!', 139, 360)
      *     .toBuffer();
      */
     printWrappedText(text: string, x: number, y: number, wrapWidth: number): this;
@@ -317,7 +317,7 @@ export declare class Canvas {
      *
      * new Canvas(500, 400)
      *     .setTextFont(`${newSize}px Tahoma`)
-     *     .addText('Hello World!', 30, 50)
+     *     .printText('Hello World!', 30, 50)
      *     .toBuffer(); // Returns a Buffer
      */
     measureText(text: string): TextMetrics;
@@ -335,7 +335,7 @@ export declare class Canvas {
      *         const newSize = size.width < 500 ? 40 : (500 / size.width) * 40;
      *         this.setTextFont(`${newSize}px Tahoma`);
      *     })
-     *     .addText('Hello World!', 30, 50)
+     *     .printText('Hello World!', 30, 50)
      *     .toBuffer(); // Returns a Buffer
      * @example
      * new Canvas(500, 400)
@@ -344,7 +344,7 @@ export declare class Canvas {
      *         const newSize = size.width < 500 ? 40 : (500 / size.width) * 40;
      *         inst.setTextFont(`${newSize}px`);
      *     })
-     *     .addText('Hello World!', 30, 50)
+     *     .printText('Hello World!', 30, 50)
      *     .toBuffer(); // Returns a Buffer
      */
     measureText(text: string, callback: MeasureTextCallback): this;
@@ -451,10 +451,9 @@ export declare class Canvas {
     printRoundedImage(imageOrBuffer: ImageResolvable, x: number, y: number, width: number, height: number, radius: BeveledRadiusOptions | number): this;
     /**
      * Add a circle or semi circle.
-     * @param {number} x The position x in the center of the circle.
-     * @param {number} y The position y in the center of the ircle.
-     * @param {number} radius The radius for the clip.
-     * @returns {this}
+     * @param x The position x in the center of the circle.
+     * @param y The position y in the center of the ircle.
+     * @param radius The radius for the clip.
      */
     printCircle(x: number, y: number, radius: number): this;
     /**
@@ -477,13 +476,13 @@ export declare class Canvas {
      * @example
      * // Radius argument
      * new Canvas(200, 200)
-     *     .addBeveledRect(0, 0, 200, 50, 35)
+     *     .printRoundedRectangle(0, 0, 200, 50, 35)
      *     .toBuffer();
      *
      * @example
      * // Configured bevels
      * new Canvas(200, 200)
-     *     .addBeveledRect(0, 0, 200, 50, {
+     *     .printRoundedRectangle(0, 0, 200, 50, {
      *         // Top left border
      *         tl: 15,
      *         // Top right border
@@ -498,7 +497,7 @@ export declare class Canvas {
      * @example
      * // Top bevels only
      * new Canvas(200, 200)
-     *     .addBeveledRect(0, 0, 200, 50, { tl: 20, tr: 20, bl: 0, br: 0 })
+     *     .printRoundedRectangle(0, 0, 200, 50, { tl: 20, tr: 20, bl: 0, br: 0 })
      *     .toBuffer();
      */
     printRoundedRectangle(x: number, y: number, width: number, height: number, radius: number | BeveledRadiusOptions): this;
@@ -576,14 +575,14 @@ export declare class Canvas {
      *         br: 10
      *     })
      *     // Add an image with the shape of the beveled clip using different borders
-     *     .addImage(buffer, 0, 0, 200, 50)
+     *     .printImage(buffer, 0, 0, 200, 50)
      *     .toBuffer();
      *
      * @example
      * // Top bevels only
      * new Canvas(200, 200)
      *     .createBeveledClip(0, 0, 200, 50, { tl: 20, tr: 20, bl: 0, br: 0 })
-     *     .addImage(buffer, 0, 0, 200, 50)
+     *     .printImage(buffer, 0, 0, 200, 50)
      *     .toBuffer();
      */
     createBeveledClip(x: number, y: number, width: number, height: number, radius: number | BeveledRadiusOptions): this;
@@ -897,11 +896,11 @@ export declare class Canvas {
      *     .setShadowColor('rgba(23, 23, 23, 0.2)')
      *     .setShadowBlur(5)
      *     // Render the text with a blow effect
-     *     .addText('Hello', 30, 50)
+     *     .printText('Hello', 30, 50)
      *     // Reset the shadows
      *     .resetShadows()
      *     // Render the text without shadows
-     *     .addText('World!', 30, 100);
+     *     .printText('World!', 30, 100);
      */
     resetShadows(): this;
     /**
@@ -940,7 +939,6 @@ export declare class Canvas {
     getLineDash(): number[];
     /**
      * Alias of Canvas#getLineDash();
-     * @readonly
      */
     get lineDash(): number[];
     /**
@@ -970,44 +968,115 @@ export declare class Canvas {
     process<P1, P2, P3, P4, P5, P6, P7, P8, P9>(fn: (this: Canvas, canvas: Canvas, arg1: P1, arg2: P2, arg3: P3, arg4: P4, arg5: P5, arg6: P6, arg7: P7, arg8: P8, arg9: P9) => unknown, arg1: P1, arg2: P2, arg3: P3, arg4: P4, arg5: P5, arg6: P6, arg7: P7, arg8: P8, arg9: P9): this;
     process(fn: (this: Canvas, canvas: Canvas, ...args: readonly any[]) => unknown, ...args: readonly any[]): this;
     /**
+     * <warn>This is for Node.js usage only, HTMLCanvasElement does not support this</warn>
      * For image canvases, encodes the canvas as a PNG. For PDF canvases, encodes the canvas as a PDF. For SVG canvases,
      * encodes the canvas as an SVG.
      */
     toBuffer(): Buffer;
     /**
+     * <warn>This is for Node.js usage only, HTMLCanvasElement does not support this</warn>
      * Encodes the canvas as a PNG.
+     * @param mimeType the standard MIME type for the image format to return.
+     * @param config The render configuration.
      */
     toBuffer(mimeType: 'image/png', config?: PngConfig): Buffer;
     /**
+     * <warn>This is for Node.js usage only, HTMLCanvasElement does not support this</warn>
      * Encodes the canvas as a JPG.
+     * @param mimeType the standard MIME type for the image format to return.
+     * @param config The render configuration.
      */
     toBuffer(mimeType: 'image/jpeg', config?: JpegConfig): Buffer;
     /**
+     * <warn>This is for Node.js usage only, HTMLCanvasElement does not support this</warn>
      * Encodes the canvas as a PDF.
+     * @param mimeType the standard MIME type for the image format to return.
+     * @param config The render configuration.
      */
     toBuffer(mimeType: 'application/pdf', config?: PdfConfig): Buffer;
     /**
+     * <warn>This is for Node.js usage only, HTMLCanvasElement does not support this</warn>
      * Returns the unencoded pixel data, top-to-bottom. On little-endian (most) systems, the array will be ordered BGRA;
      * on big-endian systems, it will be ARGB.
+     * @param mimeType the standard MIME type for the image format to return.
      */
     toBuffer(mimeType: 'raw'): Buffer;
+    /**
+     * <warn>This is for Node.js usage only, HTMLCanvasElement does not support this</warn>
+     * For image canvases, encodes the canvas as a PNG. For PDF canvases, encodes the canvas as a PDF. For SVG canvases,
+     * encodes the canvas as an SVG.
+     */
     toBufferAsync(): Promise<Buffer>;
+    /**
+     * <warn>This is for Node.js usage only, HTMLCanvasElement does not support this</warn>
+     * Encodes the canvas as a PNG.
+     * @param mimeType the standard MIME type for the image format to return.
+     * @param config The render configuration.
+     */
     toBufferAsync(mimeType: 'image/png', config?: PngConfig): Promise<Buffer>;
+    /**
+     * <warn>This is for Node.js usage only, HTMLCanvasElement does not support this</warn>
+     * Encodes the canvas as a JPG.
+     * @param mimeType the standard MIME type for the image format to return.
+     * @param config The render configuration.
+     */
     toBufferAsync(mimeType: 'image/jpeg', config?: JpegConfig): Promise<Buffer>;
     /**
-     * Render the canvas into a Data URL.
-     * @param {string} type the standard MIME type for the image format to return. If you do not specify this parameter, the default value is PNG.
-     * @param {any[]} args Extra arguments
-     * @returns {string}
+     * <warn>This is for Node.js usage only, HTMLCanvasElement does not support this</warn>
+     * Encodes the canvas as a PDF.
+     * @param mimeType the standard MIME type for the image format to return.
+     * @param config The render configuration.
+     */
+    toBufferAsync(mimeType: 'application/pdf', config?: PdfConfig): Promise<Buffer>;
+    /**
+     * Render the canvas into a PNG Data URL.
      * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toDataURL
      */
     toDataURL(): string;
+    /**
+     * Render the canvas into a PNG Data URL.
+     * @param type the standard MIME type for the image format to return.
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toDataURL
+     */
     toDataURL(mimeType: 'image/png'): string;
+    /**
+     * Render the canvas into a JPEG Data URL.
+     * @param type the standard MIME type for the image format to return.
+     * @param quality The quality for the JPEG.
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toDataURL
+     */
     toDataURL(mimeType: 'image/jpeg', quality?: number): string;
+    /**
+     * Render the canvas into a PNG Data URL.
+     * @see https://github.com/Automattic/node-canvas#canvastodataurl-sync-and-async
+     */
     toDataURLAsync(): Promise<string>;
+    /**
+     * Render the canvas into a PNG Data URL.
+     * @param type the standard MIME type for the image format to return.
+     * @see https://github.com/Automattic/node-canvas#canvastodataurl-sync-and-async
+     */
     toDataURLAsync(mimeType: 'image/png'): Promise<string>;
+    /**
+     * Render the canvas into a JPEG Data URL.
+     * @param type the standard MIME type for the image format to return.
+     * @param quality The quality for the JPEG.
+     * @see https://github.com/Automattic/node-canvas#canvastodataurl-sync-and-async
+     */
     toDataURLAsync(mimeType: 'image/jpeg'): Promise<string>;
+    /**
+     * Render the canvas into a JPEG Data URL.
+     * @param type the standard MIME type for the image format to return.
+     * @param config The render configuration.
+     * @see https://github.com/Automattic/node-canvas#canvastodataurl-sync-and-async
+     */
     toDataURLAsync(mimeType: 'image/jpeg', config: JpegConfig): Promise<string>;
+    /**
+     * Render the canvas into a JPEG Data URL.
+     * @param type the standard MIME type for the image format to return.
+     * @param quality The quality for the JPEG.
+     * @see https://github.com/Automattic/node-canvas#canvastodataurl-sync-and-async
+     */
     toDataURLAsync(mimeType: 'image/jpeg', quality: number): Promise<string>;
     /**
      * <warn>This is for web usage only, node-canvas does not support this</warn>
