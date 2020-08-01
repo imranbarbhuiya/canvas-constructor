@@ -293,7 +293,7 @@ export declare class Canvas {
      * @param height The rectangle's height.
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/strokeRect
      */
-    printStrokeRect(x: number, y: number, width: number, height: number): this;
+    printStrokeRectangle(x: number, y: number, width: number, height: number): this;
     /**
      * Add stroked text.
      * @param text The text to write.
@@ -546,7 +546,7 @@ export declare class Canvas {
      * @param height The height of clip.
      * @param radius The radius for clip's rounded borders.
      */
-    createBeveledPath(x: number, y: number, width: number, height: number, radius: number | BeveledRadiusOptions): this;
+    createRoundedPath(x: number, y: number, width: number, height: number, radius: number | BeveledRadiusOptions): this;
     /**
      * Create a beveled clip.
      * @param x The position x to start drawing clip.
@@ -557,14 +557,14 @@ export declare class Canvas {
      * @example
      * // Radius argument, fill the content
      * new Canvas(200, 200)
-     *     .createBeveledClip(0, 0, 200, 50, 35)
+     *     .createRoundedClip(0, 0, 200, 50, 35)
      *     .fill()
      *     .toBuffer();
      *
      * @example
      * // Configured bevels
      * new Canvas(200, 200)
-     *     .createBeveledClip(0, 0, 200, 50, {
+     *     .createRoundedClip(0, 0, 200, 50, {
      *         // Top left border
      *         tl: 15,
      *         // Top right border
@@ -581,11 +581,11 @@ export declare class Canvas {
      * @example
      * // Top bevels only
      * new Canvas(200, 200)
-     *     .createBeveledClip(0, 0, 200, 50, { tl: 20, tr: 20, bl: 0, br: 0 })
+     *     .createRoundedClip(0, 0, 200, 50, { tl: 20, tr: 20, bl: 0, br: 0 })
      *     .printImage(buffer, 0, 0, 200, 50)
      *     .toBuffer();
      */
-    createBeveledClip(x: number, y: number, width: number, height: number, radius: number | BeveledRadiusOptions): this;
+    createRoundedClip(x: number, y: number, width: number, height: number, radius: number | BeveledRadiusOptions): this;
     /**
      * Set a color for the canvas' context.
      * @param color A canvas' color resolvable.
@@ -628,7 +628,7 @@ export declare class Canvas {
      * @param repetition The repeat mode.
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/createPattern
      */
-    createPattern(image: Canvas | Image, repetition: PatternRepeat): CanvasPattern;
+    createPattern(image: ImageResolvable, repetition: PatternRepeat): CanvasPattern;
     /**
      * Creates a pattern using the specified image. It repeats the source in the directions specified by the repetition
      * argument, and calls the callback.
@@ -637,7 +637,7 @@ export declare class Canvas {
      * @param callback The callback to take the createPattern.
      * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/createPattern
      */
-    createPattern(image: Canvas | Image, repetition: PatternRepeat, callback: PatternCallback): this;
+    createPattern(image: ImageResolvable, repetition: PatternRepeat, callback: PatternCallback): this;
     /**
      * Creates a pattern using the specified image. It repeats the source in the directions specified by the repetition
      * argument, and prints it.
