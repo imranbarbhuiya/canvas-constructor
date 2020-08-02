@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>BeveledRadiusOptions | canvas-constructor</title>
+	<title>PrintCircularOptions | canvas-constructor</title>
 	<meta name="description" content="Documentation for canvas-constructor">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -52,10 +52,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="beveledradiusoptions.html">BeveledRadiusOptions</a>
+					<a href="printcircularoptions.html">PrintCircularOptions</a>
 				</li>
 			</ul>
-			<h1>Interface BeveledRadiusOptions</h1>
+			<h1>Interface PrintCircularOptions</h1>
 		</div>
 	</div>
 </header>
@@ -66,7 +66,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">BeveledRadiusOptions</span>
+						<span class="target">PrintCircularOptions</span>
 					</li>
 				</ul>
 			</section>
@@ -77,10 +77,7 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="beveledradiusoptions.html#bl" class="tsd-kind-icon">bl</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="beveledradiusoptions.html#br" class="tsd-kind-icon">br</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="beveledradiusoptions.html#tl" class="tsd-kind-icon">tl</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="beveledradiusoptions.html#tr" class="tsd-kind-icon">tr</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="printcircularoptions.html#fit" class="tsd-kind-icon">fit</a></li>
 							</ul>
 						</section>
 					</div>
@@ -89,63 +86,23 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="bl" class="tsd-anchor"></a>
-					<h3>bl</h3>
-					<div class="tsd-signature tsd-kind-icon">bl<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="fit" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> fit</h3>
+					<div class="tsd-signature tsd-kind-icon">fit<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"fill"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"contain"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"cover"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"none"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/05fa376/src/lib/Canvas.ts#L40">lib/Canvas.ts:40</a></li>
+							<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/05fa376/src/lib/Canvas.ts#L53">lib/Canvas.ts:53</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Bottom left corner.</p>
+							<p>The fit options, this is similar to CSS&#39;s object-fit.</p>
 						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="br" class="tsd-anchor"></a>
-					<h3>br</h3>
-					<div class="tsd-signature tsd-kind-icon">br<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/05fa376/src/lib/Canvas.ts#L35">lib/Canvas.ts:35</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Bottom right corner.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="tl" class="tsd-anchor"></a>
-					<h3>tl</h3>
-					<div class="tsd-signature tsd-kind-icon">tl<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/05fa376/src/lib/Canvas.ts#L25">lib/Canvas.ts:25</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Top left corner.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="tr" class="tsd-anchor"></a>
-					<h3>tr</h3>
-					<div class="tsd-signature tsd-kind-icon">tr<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/kyranet/canvas-constructor/blob/05fa376/src/lib/Canvas.ts#L30">lib/Canvas.ts:30</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Top right corner.</p>
-						</div>
+						<dl class="tsd-comment-tags">
+							<dt>see</dt>
+							<dd><p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit">https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit</a></p>
+							</dd>
+						</dl>
 					</div>
 				</section>
 			</section>
@@ -163,19 +120,10 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="beveledradiusoptions.html" class="tsd-kind-icon">Beveled<wbr>Radius<wbr>Options</a>
+						<a href="printcircularoptions.html" class="tsd-kind-icon">Print<wbr>Circular<wbr>Options</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="beveledradiusoptions.html#bl" class="tsd-kind-icon">bl</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="beveledradiusoptions.html#br" class="tsd-kind-icon">br</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="beveledradiusoptions.html#tl" class="tsd-kind-icon">tl</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="beveledradiusoptions.html#tr" class="tsd-kind-icon">tr</a>
+								<a href="printcircularoptions.html#fit" class="tsd-kind-icon">fit</a>
 							</li>
 						</ul>
 					</li>
