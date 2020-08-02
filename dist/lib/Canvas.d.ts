@@ -34,6 +34,13 @@ export interface GradientStop {
     position: number;
     color: string;
 }
+export interface PrintCircularOptions {
+    /**
+     * The fit options, this is similar to CSS's object-fit.
+     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit
+     */
+    fit?: 'fill' | 'contain' | 'cover' | 'none';
+}
 export declare type GlobalCompositeOperation = CanvasRenderingContext2D['globalCompositeOperation'];
 export declare type AntiAlias = CanvasRenderingContext2D['antialias'];
 export declare type TextDrawingMode = CanvasRenderingContext2D['textDrawingMode'];
@@ -438,7 +445,7 @@ export declare class Canvas {
      * @param height The height to draw the image in the destination canvas. This allows scaling of the drawn image. If not specified, the image is not scaled in height when drawn.
      * @param radius The radius for the circle
      */
-    printCircularImage(imageOrBuffer: ImageResolvable, x: number, y: number, radius: number): this;
+    printCircularImage(imageOrBuffer: ImageResolvable, x: number, y: number, radius: number, { fit }?: PrintCircularOptions): this;
     /**
      * Add a beveled image.
      * @param imageOrBuffer The image's buffer.
@@ -1122,5 +1129,6 @@ export declare class Canvas {
      *     .toBuffer(); // Returns a Buffer
      */
     wrapText(text: string, wrapWidth: number, callback: WrapTextCallback): this;
+    private static resolveCircularCoordinates;
 }
 //# sourceMappingURL=Canvas.d.ts.map
