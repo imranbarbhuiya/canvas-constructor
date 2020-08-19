@@ -106,10 +106,10 @@
 					<li>Return a buffer.</li>
 				</ul>
 				<p>Now, let&#39;s suppose we want to add images, we&#39;ll use <code>Canvas.resolveImage</code>, which works in both Node.js and browser:</p>
-				<pre><code class="language-js"><span class="hljs-keyword">const</span> { Canvas } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;canvas-constructor&#x27;</span>);
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> { Canvas, resolveImage } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;canvas-constructor&#x27;</span>);
 
 <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createCanvas</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">const</span> image = <span class="hljs-keyword">await</span> Canvas.resolveImage(<span class="hljs-string">&#x27;./images/kitten.png&#x27;</span>);
+    <span class="hljs-keyword">const</span> image = <span class="hljs-keyword">await</span> resolveImage(<span class="hljs-string">&#x27;./images/kitten.png&#x27;</span>);
 
     <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Canvas(<span class="hljs-number">300</span>, <span class="hljs-number">400</span>)
         .printImage(image, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">300</span>, <span class="hljs-number">400</span>)
