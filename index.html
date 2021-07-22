@@ -7,6 +7,7 @@
 	<meta name="description" content="Documentation for canvas-constructor">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
+	<script async src="assets/js/search.js" id="search-script"></script>
 </head>
 <body>
 <header>
@@ -47,11 +48,6 @@
 	</div>
 	<div class="tsd-page-title">
 		<div class="container">
-			<ul class="tsd-breadcrumb">
-				<li>
-					<a href="globals.html">Globals</a>
-				</li>
-			</ul>
 			<h1>canvas-constructor</h1>
 		</div>
 	</div>
@@ -60,241 +56,113 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<a href="#canvas-constructor" id="canvas-constructor" style="color: inherit; text-decoration: none;">
-					<h1>canvas-constructor</h1>
-				</a>
-				<p><a href="https://discord.gg/taNgb9d"><img src="https://discordapp.com/api/guilds/437335547711848458/embed.png" alt="Discord"></a>
-					<a href="https://www.npmjs.com/package/canvas-constructor"><img src="https://img.shields.io/npm/v/canvas-constructor.svg?maxAge=3600" alt="npm"></a>
-					<a href="https://www.npmjs.com/package/canvas-constructor"><img src="https://img.shields.io/npm/dt/canvas-constructor.svg?maxAge=3600" alt="npm"></a>
-					<a href="https://lgtm.com/projects/g/kyranet/canvas-constructor/alerts/"><img src="https://img.shields.io/lgtm/alerts/g/kyranet/canvas-constructor.svg?logo=lgtm&logoWidth=18" alt="Total alerts"></a>
-				<a href="https://raw.githubusercontent.com/kyranet/canvas-constructor/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="GitHub license"></a></p>
-				<p>An ES6 chainable class for node-canvas with built-in utilities.</p>
+				<div align="center">
+					<p><img src="https://cdn.discordapp.com/emojis/451438332375728128.png?v=1" alt="CanvasConstructor Logo"></p>
+					<a href="#canvas-constructor" id="canvas-constructor" style="color: inherit; text-decoration: none;">
+						<h1>canvas-constructor</h1>
+					</a>
+					<p><strong>An ES6 chainable class for node-canvas with built-in utilities.</strong></p>
+					<p><a href="https://www.npmjs.com/package/canvas-constructor"><img src="https://img.shields.io/npm/v/canvas-constructor.svg?maxAge=3600" alt="npm"></a>
+						<a href="https://www.npmjs.com/package/canvas-constructor"><img src="https://img.shields.io/npm/dt/canvas-constructor.svg?maxAge=3600" alt="npm"></a>
+						<a href="https://lgtm.com/projects/g/kyranet/canvas-constructor/alerts/"><img src="https://img.shields.io/lgtm/alerts/g/kyranet/canvas-constructor.svg?logo=lgtm&logoWidth=18" alt="Total alerts"></a>
+					<a href="https://raw.githubusercontent.com/kyranet/canvas-constructor/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="GitHub license"></a></p>
+					<p><a href="https://discord.gg/taNgb9d"><img src="https://discord.com/api/guilds/437335547711848458/embed.png?style=banner2" alt="Support Server"></a></p>
+				</div>
+				<hr>
 				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
 					<h2>Installation</h2>
 				</a>
-				<p>Please check <a href="https://github.com/Automattic/node-canvas/blob/master/Readme.md#installation">node-canvas readme</a> for the installation. You <strong>must</strong> have Canvas installed and working before using this package.</p>
+				<p>This module requires one of the following packages to be installed for Node.js:</p>
+				<ul>
+					<li>  <a href="https://www.npmjs.com/package/skia-canvas"><code>skia-canvas</code></a></li>
+					<li>  <a href="https://www.npmjs.com/package/canvas"><code>canvas</code></a></li>
+				</ul>
+				<blockquote>
+					<p><strong>Note</strong>: If you are building a website, no extra dependencies are required.</p>
+				</blockquote>
 				<hr>
 				<p>How to use it:</p>
 				<p><strong>Node.js</strong>:</p>
-				<pre><code class="language-js"><span class="hljs-keyword">const</span> { Canvas } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;canvas-constructor&#x27;</span>);
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">Canvas</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;canvas-constructor/skia&#039;</span><span style="color: #000000">);</span>
+<span style="color: #008000">// or `canvas-constructor/cairo` if you are using `canvas`</span>
 
-<span class="hljs-keyword">new</span> Canvas(<span class="hljs-number">300</span>, <span class="hljs-number">300</span>)
-    .setColor(<span class="hljs-string">&#x27;#AEFD54&#x27;</span>)
-    .printRectangle(<span class="hljs-number">5</span>, <span class="hljs-number">5</span>, <span class="hljs-number">290</span>, <span class="hljs-number">290</span>)
-    .setColor(<span class="hljs-string">&#x27;#FFAE23&#x27;</span>)
-    .setTextFont(<span class="hljs-string">&#x27;28px Impact&#x27;</span>)
-    .printText(<span class="hljs-string">&#x27;Hello World!&#x27;</span>, <span class="hljs-number">130</span>, <span class="hljs-number">150</span>)
-    .toBuffer();</code></pre>
+<span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Canvas</span><span style="color: #000000">(</span><span style="color: #098658">300</span><span style="color: #000000">, </span><span style="color: #098658">300</span><span style="color: #000000">)</span>
+<span style="color: #000000">    .</span><span style="color: #795E26">setColor</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;#AEFD54&#039;</span><span style="color: #000000">)</span>
+<span style="color: #000000">    .</span><span style="color: #795E26">printRectangle</span><span style="color: #000000">(</span><span style="color: #098658">5</span><span style="color: #000000">, </span><span style="color: #098658">5</span><span style="color: #000000">, </span><span style="color: #098658">290</span><span style="color: #000000">, </span><span style="color: #098658">290</span><span style="color: #000000">)</span>
+<span style="color: #000000">    .</span><span style="color: #795E26">setColor</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;#FFAE23&#039;</span><span style="color: #000000">)</span>
+<span style="color: #000000">    .</span><span style="color: #795E26">setTextFont</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;28px Impact&#039;</span><span style="color: #000000">)</span>
+<span style="color: #000000">    .</span><span style="color: #795E26">printText</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;Hello World!&#039;</span><span style="color: #000000">, </span><span style="color: #098658">130</span><span style="color: #000000">, </span><span style="color: #098658">150</span><span style="color: #000000">)</span>
+<span style="color: #000000">    .</span><span style="color: #795E26">toBuffer</span><span style="color: #000000">();</span>
+</code></pre>
 				<p><strong>Browser</strong>:</p>
-				<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;canvas-constructor/dist/index.umd.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript">
-<span class="hljs-keyword">const</span> canvasElement = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;canvas&#x27;</span>);
-<span class="hljs-keyword">new</span> CanvasConstructor.Canvas(canvasElement)
-    .setColor(<span class="hljs-string">&#x27;#AEFD54&#x27;</span>)
-    .printRectangle(<span class="hljs-number">5</span>, <span class="hljs-number">5</span>, <span class="hljs-number">290</span>, <span class="hljs-number">290</span>)
-    .setColor(<span class="hljs-string">&#x27;#FFAE23&#x27;</span>)
-    .setTextFont(<span class="hljs-string">&#x27;28px Impact&#x27;</span>)
-    .printText(<span class="hljs-string">&#x27;Hello World!&#x27;</span>, <span class="hljs-number">130</span>, <span class="hljs-number">150</span>);
-</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+				<pre><code class="language-html"><span style="color: #800000">&lt;script</span><span style="color: #000000FF"> </span><span style="color: #FF0000">type</span><span style="color: #000000FF">=</span><span style="color: #0000FF">&quot;text/javascript&quot;</span><span style="color: #000000FF"> </span><span style="color: #FF0000">src</span><span style="color: #000000FF">=</span><span style="color: #0000FF">&quot;https://unpkg.com/canvas-constructor&quot;</span><span style="color: #800000">&gt;&lt;/script&gt;</span>
+<span style="color: #800000">&lt;script</span><span style="color: #000000FF"> </span><span style="color: #FF0000">type</span><span style="color: #000000FF">=</span><span style="color: #0000FF">&quot;text/javascript&quot;</span><span style="color: #800000">&gt;</span>
+<span style="color: #000000FF">    </span><span style="color: #0000FF">const</span><span style="color: #000000FF"> </span><span style="color: #0070C1">canvasElement</span><span style="color: #000000FF"> </span><span style="color: #000000">=</span><span style="color: #000000FF"> </span><span style="color: #001080">document</span><span style="color: #000000FF">.</span><span style="color: #795E26">getElementById</span><span style="color: #000000FF">(</span><span style="color: #A31515">&#039;canvas&#039;</span><span style="color: #000000FF">);</span>
+<span style="color: #000000FF">    </span><span style="color: #0000FF">new</span><span style="color: #000000FF"> </span><span style="color: #001080">CanvasConstructor</span><span style="color: #000000FF">.</span><span style="color: #795E26">Canvas</span><span style="color: #000000FF">(</span><span style="color: #001080">canvasElement</span><span style="color: #000000FF">)</span>
+<span style="color: #000000FF">        .</span><span style="color: #795E26">setColor</span><span style="color: #000000FF">(</span><span style="color: #A31515">&#039;#AEFD54&#039;</span><span style="color: #000000FF">)</span>
+<span style="color: #000000FF">        .</span><span style="color: #795E26">printRectangle</span><span style="color: #000000FF">(</span><span style="color: #098658">5</span><span style="color: #000000FF">, </span><span style="color: #098658">5</span><span style="color: #000000FF">, </span><span style="color: #098658">290</span><span style="color: #000000FF">, </span><span style="color: #098658">290</span><span style="color: #000000FF">)</span>
+<span style="color: #000000FF">        .</span><span style="color: #795E26">setColor</span><span style="color: #000000FF">(</span><span style="color: #A31515">&#039;#FFAE23&#039;</span><span style="color: #000000FF">)</span>
+<span style="color: #000000FF">        .</span><span style="color: #795E26">setTextFont</span><span style="color: #000000FF">(</span><span style="color: #A31515">&#039;28px Impact&#039;</span><span style="color: #000000FF">)</span>
+<span style="color: #000000FF">        .</span><span style="color: #795E26">printText</span><span style="color: #000000FF">(</span><span style="color: #A31515">&#039;Hello World!&#039;</span><span style="color: #000000FF">, </span><span style="color: #098658">130</span><span style="color: #000000FF">, </span><span style="color: #098658">150</span><span style="color: #000000FF">);</span>
+<span style="color: #800000">&lt;/script&gt;</span>
+</code></pre>
 				<ul>
-					<li>That will create a canvas with size of 300 pixels width, 300 pixels height.</li>
-					<li>Set the color to #AEFD54</li>
-					<li>Draw a rectangle with the previous color, covering all the pixels from (5, 5) to (290 + 5, 290 + 5)</li>
-					<li>Set the color to #FFAE23</li>
-					<li>Set the font size to 28 pixels with font Impact.</li>
-					<li>Write the text &#39;Hello World!&#39; in the position (130, 150)</li>
-					<li>Return a buffer.</li>
+					<li>  That will create a canvas with size of 300 pixels width, 300 pixels height.</li>
+					<li>  Set the color to #AEFD54</li>
+					<li>  Draw a rectangle with the previous color, covering all the pixels from (5, 5) to (290 + 5, 290 + 5)</li>
+					<li>  Set the color to #FFAE23</li>
+					<li>  Set the font size to 28 pixels with font Impact.</li>
+					<li>  Write the text &#39;Hello World!&#39; in the position (130, 150)</li>
+					<li>  Return a buffer.</li>
 				</ul>
 				<p>Now, let&#39;s suppose we want to add images, we&#39;ll use <code>Canvas.resolveImage</code>, which works in both Node.js and browser:</p>
-				<pre><code class="language-js"><span class="hljs-keyword">const</span> { Canvas, resolveImage } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;canvas-constructor&#x27;</span>);
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">Canvas</span><span style="color: #000000">, </span><span style="color: #0070C1">resolveImage</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;canvas-constructor/skia&#039;</span><span style="color: #000000">);</span>
 
-<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createCanvas</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">const</span> image = <span class="hljs-keyword">await</span> resolveImage(<span class="hljs-string">&#x27;./images/kitten.png&#x27;</span>);
+<span style="color: #0000FF">async</span><span style="color: #000000"> </span><span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">createCanvas</span><span style="color: #000000">() {</span>
+<span style="color: #000000">    </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">image</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">resolveImage</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;./images/kitten.png&#039;</span><span style="color: #000000">);</span>
 
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Canvas(<span class="hljs-number">300</span>, <span class="hljs-number">400</span>)
-        .printImage(image, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">300</span>, <span class="hljs-number">400</span>)
-        .setColor(<span class="hljs-string">&#x27;#FFAE23&#x27;</span>)
-        .setTextFont(<span class="hljs-string">&#x27;28px Impact&#x27;</span>)
-        .setTextAlign(<span class="hljs-string">&#x27;center&#x27;</span>)
-        .printText(<span class="hljs-string">&#x27;Kitten!&#x27;</span>, <span class="hljs-number">150</span>, <span class="hljs-number">370</span>)
-        .toBufferAsync();
-}</code></pre>
+<span style="color: #000000">    </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Canvas</span><span style="color: #000000">(</span><span style="color: #098658">300</span><span style="color: #000000">, </span><span style="color: #098658">400</span><span style="color: #000000">)</span>
+<span style="color: #000000">        .</span><span style="color: #795E26">printImage</span><span style="color: #000000">(</span><span style="color: #001080">image</span><span style="color: #000000">, </span><span style="color: #098658">0</span><span style="color: #000000">, </span><span style="color: #098658">0</span><span style="color: #000000">, </span><span style="color: #098658">300</span><span style="color: #000000">, </span><span style="color: #098658">400</span><span style="color: #000000">)</span>
+<span style="color: #000000">        .</span><span style="color: #795E26">setColor</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;#FFAE23&#039;</span><span style="color: #000000">)</span>
+<span style="color: #000000">        .</span><span style="color: #795E26">setTextFont</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;28px Impact&#039;</span><span style="color: #000000">)</span>
+<span style="color: #000000">        .</span><span style="color: #795E26">setTextAlign</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;center&#039;</span><span style="color: #000000">)</span>
+<span style="color: #000000">        .</span><span style="color: #795E26">printText</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;Kitten!&#039;</span><span style="color: #000000">, </span><span style="color: #098658">150</span><span style="color: #000000">, </span><span style="color: #098658">370</span><span style="color: #000000">)</span>
+<span style="color: #000000">        .</span><span style="color: #795E26">toBufferAsync</span><span style="color: #000000">();</span>
+<span style="color: #000000">}</span>
+</code></pre>
 				<ul>
-					<li>That will create a canvas with size of 300 pixels width, 400 pixels height.</li>
-					<li>Draw an image, given a Buffer (the image from the images folder).</li>
-					<li>Set the color to #FFAE23</li>
-					<li>Set the font size to 28 pixels with font Impact.</li>
-					<li>Set the text alignment to center.</li>
-					<li>Write the text &#39;Kitten!&#39; in the position (150, 370)</li>
-					<li>Return a buffer.</li>
+					<li>  That will create a canvas with size of 300 pixels width, 400 pixels height.</li>
+					<li>  Draw an image, given a Buffer (the image from the images folder).</li>
+					<li>  Set the color to #FFAE23</li>
+					<li>  Set the font size to 28 pixels with font Impact.</li>
+					<li>  Set the text alignment to center.</li>
+					<li>  Write the text &#39;Kitten!&#39; in the position (150, 370)</li>
+					<li>  Return a buffer.</li>
 				</ul>
-				<p>And now, you have created an image with a kitten in the background and some centered text in the bottom of it.</p>
-				<p>If you experience issues with <strong>Canvas</strong> or want to install it, please refer to the <a href="https://www.npmjs.com/package/canvas">canvas</a> repository, if you feel you found an issue in this package, feel free to file an issue <a href="https://github.com/kyranet/canvas-constructor/issues">here</a>, or make a <a href="https://help.github.com/articles/about-pull-requests/">Pull Request</a> if you have the fix.</p>
+				<p>And now, you have created an image with a kitten in the background and some centred text in the bottom of it.</p>
+				<p>If you experience issues with <code>skia-canvas</code> or <code>canvas</code>, please refer to their respective package repositories, this
+				package is just a convenient wrapper for the two.</p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
-					<li class="globals  ">
-						<a href="globals.html"><em>Globals</em></a>
+					<li class=" ">
+						<a href="modules.html">Modules</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/browser.html">browser</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/cairo.html">cairo</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/skia.html">skia</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class">
-						<a href="classes/canvas.html" class="tsd-kind-icon">Canvas</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/beveledradiusoptions.html" class="tsd-kind-icon">Beveled<wbr>Radius<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/gradientstop.html" class="tsd-kind-icon">Gradient<wbr>Stop</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/imagedatacallback.html" class="tsd-kind-icon">Image<wbr>Data<wbr>Callback</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/measuretextcallback.html" class="tsd-kind-icon">Measure<wbr>Text<wbr>Callback</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/patterncallback.html" class="tsd-kind-icon">Pattern<wbr>Callback</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/printcircularoptions.html" class="tsd-kind-icon">Print<wbr>Circular<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/resolvedcircularcoordinates.html" class="tsd-kind-icon">Resolved<wbr>Circular<wbr>Coordinates</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/wraptextcallback.html" class="tsd-kind-icon">Wrap<wbr>Text<wbr>Callback</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#antialias" class="tsd-kind-icon">Anti<wbr>Alias</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#colorkeyword" class="tsd-kind-icon">Color<wbr>Keyword</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#colorkeywordlevel1" class="tsd-kind-icon">Color<wbr>Keyword<wbr>Level1</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#colorkeywordlevel2" class="tsd-kind-icon">Color<wbr>Keyword<wbr>Level2</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#colorkeywordlevel3" class="tsd-kind-icon">Color<wbr>Keyword<wbr>Level3</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#colorkeywordlevel4" class="tsd-kind-icon">Color<wbr>Keyword<wbr>Level4</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#globalcompositeoperation" class="tsd-kind-icon">Global<wbr>Composite<wbr>Operation</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#imageresolvable" class="tsd-kind-icon">Image<wbr>Resolvable</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#loadableimage" class="tsd-kind-icon">Loadable<wbr>Image</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#patternquality" class="tsd-kind-icon">Pattern<wbr>Quality</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#patternrepeat" class="tsd-kind-icon">Pattern<wbr>Repeat</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#textdrawingmode" class="tsd-kind-icon">Text<wbr>Drawing<wbr>Mode</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="globals.html#blurlaplacematrix" class="tsd-kind-icon">blur<wbr>LaPlace<wbr>Matrix</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="globals.html#browser" class="tsd-kind-icon">browser</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="globals.html#edgelaplacematrix" class="tsd-kind-icon">edge<wbr>LaPlace<wbr>Matrix</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="globals.html#getfontheight" class="tsd-kind-icon">get<wbr>Font<wbr>Height</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="globals.html#grayscale" class="tsd-kind-icon">grayscale</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="globals.html#internalcanvas" class="tsd-kind-icon">internal<wbr>Canvas</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="globals.html#invertgreyscale" class="tsd-kind-icon">invert<wbr>Greyscale</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="globals.html#myoldfriend" class="tsd-kind-icon">my<wbr>Old<wbr>Friend</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="globals.html#sharpenlaplacematrix" class="tsd-kind-icon">sharpen<wbr>LaPlace<wbr>Matrix</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#blur" class="tsd-kind-icon">blur</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#brightness" class="tsd-kind-icon">brightness</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#color" class="tsd-kind-icon">color</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#convolute" class="tsd-kind-icon">convolute</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#darkness" class="tsd-kind-icon">darkness</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#edge" class="tsd-kind-icon">edge</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#greyscale" class="tsd-kind-icon">greyscale</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#hex" class="tsd-kind-icon">hex</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#hsl" class="tsd-kind-icon">hsl</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#hsla" class="tsd-kind-icon">hsla</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#invert" class="tsd-kind-icon">invert</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#invertgrayscale" class="tsd-kind-icon">invert<wbr>Grayscale</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#invertedthreshold" class="tsd-kind-icon">inverted<wbr>Threshold</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#resolveimage" class="tsd-kind-icon">resolve<wbr>Image</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#rgb" class="tsd-kind-icon">rgb</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#rgba" class="tsd-kind-icon">rgba</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#sepia" class="tsd-kind-icon">sepia</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#sharpen" class="tsd-kind-icon">sharpen</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#silhouette" class="tsd-kind-icon">silhouette</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#textwrap" class="tsd-kind-icon">text<wbr>Wrap</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#threshold" class="tsd-kind-icon">threshold</a>
-					</li>
 				</ul>
 			</nav>
 		</div>
@@ -305,12 +173,17 @@
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
-				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
 			</ul>
 		</div>
 	</div>
