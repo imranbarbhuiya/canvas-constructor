@@ -74,8 +74,8 @@
 				</a>
 				<p>This module requires one of the following packages to be installed for Node.js:</p>
 				<ul>
-					<li>  <a href="https://www.npmjs.com/package/skia-canvas"><code>skia-canvas</code></a></li>
-					<li>  <a href="https://www.npmjs.com/package/canvas"><code>canvas</code></a></li>
+					<li><a href="https://www.npmjs.com/package/skia-canvas"><code>skia-canvas</code></a></li>
+					<li><a href="https://www.npmjs.com/package/canvas"><code>canvas</code></a></li>
 				</ul>
 				<blockquote>
 					<p><strong>Note</strong>: If you are building a website, no extra dependencies are required.</p>
@@ -107,13 +107,13 @@
 <span style="color: #800000">&lt;/script&gt;</span>
 </code></pre>
 				<ul>
-					<li>  That will create a canvas with size of 300 pixels width, 300 pixels height.</li>
-					<li>  Set the color to #AEFD54</li>
-					<li>  Draw a rectangle with the previous color, covering all the pixels from (5, 5) to (290 + 5, 290 + 5)</li>
-					<li>  Set the color to #FFAE23</li>
-					<li>  Set the font size to 28 pixels with font Impact.</li>
-					<li>  Write the text &#39;Hello World!&#39; in the position (130, 150)</li>
-					<li>  Return a buffer.</li>
+					<li>That will create a canvas with size of 300 pixels width, 300 pixels height.</li>
+					<li>Set the color to #AEFD54</li>
+					<li>Draw a rectangle with the previous color, covering all the pixels from (5, 5) to (290 + 5, 290 + 5)</li>
+					<li>Set the color to #FFAE23</li>
+					<li>Set the font size to 28 pixels with font Impact.</li>
+					<li>Write the text &#39;Hello World!&#39; in the position (130, 150)</li>
+					<li>Return a buffer.</li>
 				</ul>
 				<p>Now, let&#39;s suppose we want to add images, we&#39;ll use <code>Canvas.resolveImage</code>, which works in both Node.js and browser:</p>
 				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">Canvas</span><span style="color: #000000">, </span><span style="color: #0070C1">resolveImage</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;canvas-constructor/skia&#039;</span><span style="color: #000000">);</span>
@@ -131,13 +131,13 @@
 <span style="color: #000000">}</span>
 </code></pre>
 				<ul>
-					<li>  That will create a canvas with size of 300 pixels width, 400 pixels height.</li>
-					<li>  Draw an image, given a Buffer (the image from the images folder).</li>
-					<li>  Set the color to #FFAE23</li>
-					<li>  Set the font size to 28 pixels with font Impact.</li>
-					<li>  Set the text alignment to center.</li>
-					<li>  Write the text &#39;Kitten!&#39; in the position (150, 370)</li>
-					<li>  Return a buffer.</li>
+					<li>That will create a canvas with size of 300 pixels width, 400 pixels height.</li>
+					<li>Draw an image, given a Buffer (the image from the images folder).</li>
+					<li>Set the color to #FFAE23</li>
+					<li>Set the font size to 28 pixels with font Impact.</li>
+					<li>Set the text alignment to center.</li>
+					<li>Write the text &#39;Kitten!&#39; in the position (150, 370)</li>
+					<li>Return a buffer.</li>
 				</ul>
 				<p>And now, you have created an image with a kitten in the background and some centred text in the bottom of it.</p>
 				<p>If you experience issues with <code>skia-canvas</code> or <code>canvas</code>, please refer to their respective package repositories, this
